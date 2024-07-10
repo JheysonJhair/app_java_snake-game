@@ -68,15 +68,6 @@ public class FormMain extends javax.swing.JFrame implements KeyListener {
         jPanelPrincipal = new javax.swing.JPanel();
         jPanelInicio = new javax.swing.JPanel();
         jLabelLogo = new javax.swing.JLabel();
-        jLabelAjustDificultad = new javax.swing.JLabel();
-        jRadioButtonDifFacil = new javax.swing.JRadioButton();
-        jRadioButtonDifMedia = new javax.swing.JRadioButton();
-        jRadioButtonDifDificil = new javax.swing.JRadioButton();
-        jRadioButtonDifPersonalizada = new javax.swing.JRadioButton();
-        jLabelAjustTamano = new javax.swing.JLabel();
-        jRadioButtonTam20x20 = new javax.swing.JRadioButton();
-        jRadioButtonTam30x30 = new javax.swing.JRadioButton();
-        jRadioButtonTam40x40 = new javax.swing.JRadioButton();
         jLabelAjusVelocidad = new javax.swing.JLabel();
         jRadioButtonVelBaja = new javax.swing.JRadioButton();
         jRadioButtonVelMedia = new javax.swing.JRadioButton();
@@ -145,118 +136,6 @@ public class FormMain extends javax.swing.JFrame implements KeyListener {
         gridBagConstraints.ipadx = 28;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 15, 0);
         jPanelInicio.add(jLabelLogo, gridBagConstraints);
-
-        jLabelAjustDificultad.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabelAjustDificultad.setText("Dificultad");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanelInicio.add(jLabelAjustDificultad, gridBagConstraints);
-
-        jRadioButtonDifFacil.setBackground(new java.awt.Color(255, 255, 255));
-        buttonGroupDificultad.add(jRadioButtonDifFacil);
-        jRadioButtonDifFacil.setSelected(true);
-        jRadioButtonDifFacil.setText("Fácil");
-        jRadioButtonDifFacil.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButtonDifFacilActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanelInicio.add(jRadioButtonDifFacil, gridBagConstraints);
-
-        jRadioButtonDifMedia.setBackground(new java.awt.Color(255, 255, 255));
-        buttonGroupDificultad.add(jRadioButtonDifMedia);
-        jRadioButtonDifMedia.setText("Media");
-        jRadioButtonDifMedia.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButtonDifMediaActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanelInicio.add(jRadioButtonDifMedia, gridBagConstraints);
-
-        jRadioButtonDifDificil.setBackground(new java.awt.Color(255, 255, 255));
-        buttonGroupDificultad.add(jRadioButtonDifDificil);
-        jRadioButtonDifDificil.setText("Difícil");
-        jRadioButtonDifDificil.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButtonDifDificilActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanelInicio.add(jRadioButtonDifDificil, gridBagConstraints);
-
-        jRadioButtonDifPersonalizada.setBackground(new java.awt.Color(255, 255, 255));
-        buttonGroupDificultad.add(jRadioButtonDifPersonalizada);
-        jRadioButtonDifPersonalizada.setText("Personalizada");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanelInicio.add(jRadioButtonDifPersonalizada, gridBagConstraints);
-
-        jLabelAjustTamano.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabelAjustTamano.setText("Tamaño del tablero");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanelInicio.add(jLabelAjustTamano, gridBagConstraints);
-
-        jRadioButtonTam20x20.setBackground(new java.awt.Color(255, 255, 255));
-        buttonGroupTamaño.add(jRadioButtonTam20x20);
-        jRadioButtonTam20x20.setSelected(true);
-        jRadioButtonTam20x20.setText("20x20");
-        jRadioButtonTam20x20.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButtonTam20x20ActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanelInicio.add(jRadioButtonTam20x20, gridBagConstraints);
-
-        jRadioButtonTam30x30.setBackground(new java.awt.Color(255, 255, 255));
-        buttonGroupTamaño.add(jRadioButtonTam30x30);
-        jRadioButtonTam30x30.setText("30x30");
-        jRadioButtonTam30x30.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButtonTam30x30ActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanelInicio.add(jRadioButtonTam30x30, gridBagConstraints);
-
-        jRadioButtonTam40x40.setBackground(new java.awt.Color(255, 255, 255));
-        buttonGroupTamaño.add(jRadioButtonTam40x40);
-        jRadioButtonTam40x40.setText("40x40");
-        jRadioButtonTam40x40.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButtonTam40x40ActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanelInicio.add(jRadioButtonTam40x40, gridBagConstraints);
 
         jLabelAjusVelocidad.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabelAjusVelocidad.setText("Velocidad");
@@ -719,63 +598,8 @@ public class FormMain extends javax.swing.JFrame implements KeyListener {
         }).start();
     }//GEN-LAST:event_jButtonComenzarActionPerformed
 
-    private void jRadioButtonDifFacilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonDifFacilActionPerformed
-        jRadioButtonTam20x20.doClick();
-        jRadioButtonVelBaja.doClick();
-    }//GEN-LAST:event_jRadioButtonDifFacilActionPerformed
-
-    private void jRadioButtonDifMediaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonDifMediaActionPerformed
-        jRadioButtonTam30x30.doClick();
-        jRadioButtonVelMedia.doClick();
-    }//GEN-LAST:event_jRadioButtonDifMediaActionPerformed
-
-    private void jRadioButtonDifDificilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonDifDificilActionPerformed
-        jRadioButtonTam40x40.doClick();
-        jRadioButtonVelAlta.doClick();
-    }//GEN-LAST:event_jRadioButtonDifDificilActionPerformed
-
-    private void jRadioButtonTam20x20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonTam20x20ActionPerformed
-        if(!jRadioButtonDifFacil.isSelected()){
-            jRadioButtonDifPersonalizada.doClick();
-        }
-        this.width = 20;
-        this.height = 20;
-    }//GEN-LAST:event_jRadioButtonTam20x20ActionPerformed
-
-    private void jRadioButtonTam30x30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonTam30x30ActionPerformed
-        if(!jRadioButtonDifMedia.isSelected()){
-            jRadioButtonDifPersonalizada.doClick();
-        }
-        this.width = 30;
-        this.height = 30;
-    }//GEN-LAST:event_jRadioButtonTam30x30ActionPerformed
-
-    private void jRadioButtonTam40x40ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonTam40x40ActionPerformed
-        if(!jRadioButtonDifDificil.isSelected()){
-            jRadioButtonDifPersonalizada.doClick();
-        }
-        this.width = 40;
-        this.height = 40;
-    }//GEN-LAST:event_jRadioButtonTam40x40ActionPerformed
-
-    private void jRadioButtonVelBajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonVelBajaActionPerformed
-        if(!jRadioButtonDifFacil.isSelected()){
-            jRadioButtonDifPersonalizada.doClick();
-        }
-        this.velocidad = 300;
-    }//GEN-LAST:event_jRadioButtonVelBajaActionPerformed
-
-    private void jRadioButtonVelMediaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonVelMediaActionPerformed
-        if(!jRadioButtonDifMedia.isSelected()){
-            jRadioButtonDifPersonalizada.doClick();
-        }
-        this.velocidad = 200;
-    }//GEN-LAST:event_jRadioButtonVelMediaActionPerformed
-
     private void jRadioButtonVelAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonVelAltaActionPerformed
-        if(!jRadioButtonDifDificil.isSelected()){
-            jRadioButtonDifPersonalizada.doClick();
-        }
+
         this.velocidad = 100;
     }//GEN-LAST:event_jRadioButtonVelAltaActionPerformed
 
@@ -790,6 +614,16 @@ public class FormMain extends javax.swing.JFrame implements KeyListener {
     private void jButtonSalirPuntActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirPuntActionPerformed
         this.dispose();
     }//GEN-LAST:event_jButtonSalirPuntActionPerformed
+
+    private void jRadioButtonVelMediaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonVelMediaActionPerformed
+
+        this.velocidad = 200;
+    }//GEN-LAST:event_jRadioButtonVelMediaActionPerformed
+
+    private void jRadioButtonVelBajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonVelBajaActionPerformed
+
+        this.velocidad = 300;
+    }//GEN-LAST:event_jRadioButtonVelBajaActionPerformed
 
     @Override
     public void keyPressed(KeyEvent arg0) {
@@ -854,8 +688,6 @@ public class FormMain extends javax.swing.JFrame implements KeyListener {
     private javax.swing.JButton jButtonSalirPunt;
     private javax.swing.JButton jButtonVolverInfo;
     private javax.swing.JLabel jLabelAjusVelocidad;
-    private javax.swing.JLabel jLabelAjustDificultad;
-    private javax.swing.JLabel jLabelAjustTamano;
     private javax.swing.JLabel jLabelClockImgInfo;
     private javax.swing.JLabel jLabelClockInfo;
     private javax.swing.JLabel jLabelInfo;
@@ -890,13 +722,6 @@ public class FormMain extends javax.swing.JFrame implements KeyListener {
     private javax.swing.JPanel jPanelSuperior;
     private javax.swing.JPanel jPanelTablero;
     private javax.swing.JPanel jPanelVelocidadInfo;
-    private javax.swing.JRadioButton jRadioButtonDifDificil;
-    private javax.swing.JRadioButton jRadioButtonDifFacil;
-    private javax.swing.JRadioButton jRadioButtonDifMedia;
-    private javax.swing.JRadioButton jRadioButtonDifPersonalizada;
-    private javax.swing.JRadioButton jRadioButtonTam20x20;
-    private javax.swing.JRadioButton jRadioButtonTam30x30;
-    private javax.swing.JRadioButton jRadioButtonTam40x40;
     private javax.swing.JRadioButton jRadioButtonVelAlta;
     private javax.swing.JRadioButton jRadioButtonVelBaja;
     private javax.swing.JRadioButton jRadioButtonVelMedia;

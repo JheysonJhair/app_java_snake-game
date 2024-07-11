@@ -34,8 +34,8 @@ public class FormMain extends javax.swing.JFrame implements KeyListener {
         initComponents();
         // Ajustes iniciales
         this.setLocationRelativeTo(null);
-        this.width = 20;
-        this.height = 20;
+        this.width = 70;
+        this.height = 34;
         this.velocidad = 300;
         addKeyListener(this);
         cardLayout = (CardLayout)jPanelPrincipal.getLayout();
@@ -74,6 +74,9 @@ public class FormMain extends javax.swing.JFrame implements KeyListener {
         jRadioButtonVelAlta = new javax.swing.JRadioButton();
         jButtonComenzar = new javax.swing.JButton();
         jButtonInfo = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jPanelInfo = new javax.swing.JPanel();
         jLabelInfo = new javax.swing.JLabel();
         jPanelSerpienteInfo = new javax.swing.JPanel();
@@ -99,7 +102,7 @@ public class FormMain extends javax.swing.JFrame implements KeyListener {
         jPanelEspaciadorUI = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/recursos/img/logo_mini.png")).getImage());
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/recursos/img/logo_icon.png")).getImage());
         setMinimumSize(new java.awt.Dimension(750, 450));
         setResizable(false);
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.LINE_AXIS));
@@ -112,13 +115,12 @@ public class FormMain extends javax.swing.JFrame implements KeyListener {
         jPanelInicio.setMinimumSize(new java.awt.Dimension(600, 450));
         jPanelInicio.setPreferredSize(new java.awt.Dimension(600, 450));
         java.awt.GridBagLayout jPanelInicioLayout = new java.awt.GridBagLayout();
-        jPanelInicioLayout.columnWidths = new int[] {0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0};
+        jPanelInicioLayout.columnWidths = new int[] {0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0};
         jPanelInicioLayout.rowHeights = new int[] {0, 15, 0, 15, 0, 15, 0, 15, 0};
         jPanelInicio.setLayout(jPanelInicioLayout);
 
         jLabelLogo.setFont(new java.awt.Font("Tahoma", 1, 60)); // NOI18N
-        jLabelLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/img/logo.png"))); // NOI18N
-        jLabelLogo.setText("Snake");
+        jLabelLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/img/logo_snake.png"))); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -127,8 +129,8 @@ public class FormMain extends javax.swing.JFrame implements KeyListener {
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 15, 0);
         jPanelInicio.add(jLabelLogo, gridBagConstraints);
 
-        jLabelAjusVelocidad.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabelAjusVelocidad.setText("Velocidad");
+        jLabelAjusVelocidad.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabelAjusVelocidad.setText("Seleccione la dificultad:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 6;
@@ -137,15 +139,16 @@ public class FormMain extends javax.swing.JFrame implements KeyListener {
 
         jRadioButtonVelBaja.setBackground(new java.awt.Color(255, 255, 255));
         buttonGroupVelocidad.add(jRadioButtonVelBaja);
+        jRadioButtonVelBaja.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
         jRadioButtonVelBaja.setSelected(true);
-        jRadioButtonVelBaja.setText("Baja");
+        jRadioButtonVelBaja.setText("Fácil");
         jRadioButtonVelBaja.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButtonVelBajaActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanelInicio.add(jRadioButtonVelBaja, gridBagConstraints);
@@ -159,26 +162,30 @@ public class FormMain extends javax.swing.JFrame implements KeyListener {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanelInicio.add(jRadioButtonVelMedia, gridBagConstraints);
 
         jRadioButtonVelAlta.setBackground(new java.awt.Color(255, 255, 255));
         buttonGroupVelocidad.add(jRadioButtonVelAlta);
-        jRadioButtonVelAlta.setText("Alta");
+        jRadioButtonVelAlta.setText("Difícil");
         jRadioButtonVelAlta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButtonVelAltaActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridx = 8;
         gridBagConstraints.gridy = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanelInicio.add(jRadioButtonVelAlta, gridBagConstraints);
 
-        jButtonComenzar.setText("Comenzar Juego");
+        jButtonComenzar.setBackground(new java.awt.Color(0, 0, 0));
+        jButtonComenzar.setFont(new java.awt.Font("Segoe UI Variable", 0, 18)); // NOI18N
+        jButtonComenzar.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonComenzar.setText("Iniciar juego");
+        jButtonComenzar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonComenzar.setNextFocusableComponent(this);
         jButtonComenzar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -188,14 +195,14 @@ public class FormMain extends javax.swing.JFrame implements KeyListener {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 8;
-        gridBagConstraints.gridwidth = 9;
+        gridBagConstraints.gridwidth = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.ipadx = 10;
         gridBagConstraints.ipady = 10;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanelInicio.add(jButtonComenzar, gridBagConstraints);
 
-        jButtonInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/img/info.png"))); // NOI18N
+        jButtonInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/img/info_snake.png"))); // NOI18N
         jButtonInfo.setBorder(null);
         jButtonInfo.setBorderPainted(false);
         jButtonInfo.setContentAreaFilled(false);
@@ -207,10 +214,45 @@ public class FormMain extends javax.swing.JFrame implements KeyListener {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 10;
+        gridBagConstraints.gridx = 8;
         gridBagConstraints.gridy = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
         jPanelInicio.add(jButtonInfo, gridBagConstraints);
+
+        jPanel1.setPreferredSize(new java.awt.Dimension(420, 70));
+
+        jLabel1.setFont(new java.awt.Font("Sitka Text", 1, 36)); // NOI18N
+        jLabel1.setText("ZZZ");
+
+        jLabel2.setFont(new java.awt.Font("Agency FB", 1, 36)); // NOI18N
+        jLabel2.setText("Juega a");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(107, 107, 107)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(98, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
+                    .addComponent(jLabel1))
+                .addContainerGap())
+        );
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 9;
+        jPanelInicio.add(jPanel1, gridBagConstraints);
 
         jPanelPrincipal.add(jPanelInicio, "PanelInicio");
 
@@ -585,6 +627,8 @@ public class FormMain extends javax.swing.JFrame implements KeyListener {
     private javax.swing.JButton jButtonComenzar;
     private javax.swing.JButton jButtonInfo;
     private javax.swing.JButton jButtonVolverInfo;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelAjusVelocidad;
     private javax.swing.JLabel jLabelClockImgInfo;
     private javax.swing.JLabel jLabelClockInfo;
@@ -601,6 +645,7 @@ public class FormMain extends javax.swing.JFrame implements KeyListener {
     private javax.swing.JLabel jLabelVelocidad;
     protected static javax.swing.JLabel jLabelVelocidadC;
     private javax.swing.JLabel jLabelVelocidadInfo;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanelEspaciadorUI;
     private javax.swing.JPanel jPanelInfo;
     private javax.swing.JPanel jPanelInicio;

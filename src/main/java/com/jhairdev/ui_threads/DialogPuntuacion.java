@@ -26,7 +26,6 @@ public class DialogPuntuacion extends javax.swing.JDialog {
         jLabelPuntuacionC.setText(FormMain.jLabelPuntuacionC.getText());
         jLabelManzanasC.setText(FormMain.jLabelManzanasC.getText());
         jLabelTiempoC.setText(FormMain.jLabelTiempoC.getText());
-        jLabelVelocidadC.setText(FormMain.jLabelVelocidadC.getText());
         String[][] string = tablaDePuntuacion.recuperarLista();
         // Si su puntuación es mas alta muestra el botón de guardar
         for (int i = 0; i < 3; i++) {

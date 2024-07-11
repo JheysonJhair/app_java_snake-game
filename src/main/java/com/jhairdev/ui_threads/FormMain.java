@@ -90,16 +90,17 @@ public class FormMain extends javax.swing.JFrame implements KeyListener {
         jButtonVolverInfo = new javax.swing.JButton();
         jPanelJuego = new javax.swing.JPanel();
         jPanelTablero = new javax.swing.JPanel();
-        jPanelSuperior = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
         jLabelTiempo = new javax.swing.JLabel();
         jLabelTiempoC = new javax.swing.JLabel();
         jLabelManzanas = new javax.swing.JLabel();
         jLabelManzanasC = new javax.swing.JLabel();
         jLabelPuntuacion = new javax.swing.JLabel();
         jLabelPuntuacionC = new javax.swing.JLabel();
-        jLabelVelocidad = new javax.swing.JLabel();
-        jLabelVelocidadC = new javax.swing.JLabel();
         jPanelEspaciadorUI = new javax.swing.JPanel();
+        jPanelEspaciadorUI1 = new javax.swing.JPanel();
+        jPanelEspaciadorUI2 = new javax.swing.JPanel();
+        jPanelEspaciadorUI3 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setIconImage(new javax.swing.ImageIcon(getClass().getResource("/recursos/img/logo_icon.png")).getImage());
@@ -219,7 +220,7 @@ public class FormMain extends javax.swing.JFrame implements KeyListener {
         gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
         jPanelInicio.add(jButtonInfo, gridBagConstraints);
 
-        jPanel1.setPreferredSize(new java.awt.Dimension(420, 70));
+        jPanel1.setPreferredSize(new java.awt.Dimension(420, 65));
 
         jLabel1.setFont(new java.awt.Font("Sitka Text", 1, 36)); // NOI18N
         jLabel1.setText("ZZZ");
@@ -236,15 +237,19 @@ public class FormMain extends javax.swing.JFrame implements KeyListener {
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(98, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
-                    .addComponent(jLabel1))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(8, 8, 8)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -278,11 +283,11 @@ public class FormMain extends javax.swing.JFrame implements KeyListener {
         jPanelSerpienteInfo.setLayout(jPanelSerpienteInfoLayout);
         jPanelSerpienteInfoLayout.setHorizontalGroup(
             jPanelSerpienteInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 20, Short.MAX_VALUE)
         );
         jPanelSerpienteInfoLayout.setVerticalGroup(
             jPanelSerpienteInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 60, Short.MAX_VALUE)
         );
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -306,11 +311,11 @@ public class FormMain extends javax.swing.JFrame implements KeyListener {
         jPanelManzanInfo.setLayout(jPanelManzanInfoLayout);
         jPanelManzanInfoLayout.setHorizontalGroup(
             jPanelManzanInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 20, Short.MAX_VALUE)
         );
         jPanelManzanInfoLayout.setVerticalGroup(
             jPanelManzanInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 20, Short.MAX_VALUE)
         );
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -334,11 +339,11 @@ public class FormMain extends javax.swing.JFrame implements KeyListener {
         jPanelVelocidadInfo.setLayout(jPanelVelocidadInfoLayout);
         jPanelVelocidadInfoLayout.setHorizontalGroup(
             jPanelVelocidadInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 20, Short.MAX_VALUE)
         );
         jPanelVelocidadInfoLayout.setVerticalGroup(
             jPanelVelocidadInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 20, Short.MAX_VALUE)
         );
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -385,11 +390,9 @@ public class FormMain extends javax.swing.JFrame implements KeyListener {
 
         jPanelJuego.setMinimumSize(new java.awt.Dimension(600, 450));
         jPanelJuego.setPreferredSize(new java.awt.Dimension(600, 450));
-        java.awt.GridBagLayout jPanelJuegoLayout = new java.awt.GridBagLayout();
-        jPanelJuegoLayout.columnWidths = new int[] {0, 25, 0, 25, 0};
-        jPanelJuegoLayout.rowHeights = new int[] {0, 10, 0, 10, 0, 10, 0};
-        jPanelJuego.setLayout(jPanelJuegoLayout);
+        jPanelJuego.setLayout(new java.awt.GridBagLayout());
 
+        jPanelTablero.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanelTablero.setMaximumSize(new java.awt.Dimension(800, 800));
         jPanelTablero.setMinimumSize(new java.awt.Dimension(400, 400));
         jPanelTablero.setName(""); // NOI18N
@@ -399,76 +402,69 @@ public class FormMain extends javax.swing.JFrame implements KeyListener {
         jPanelTablero.setLayout(jPanelTableroLayout);
         jPanelTableroLayout.setHorizontalGroup(
             jPanelTableroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 398, Short.MAX_VALUE)
         );
         jPanelTableroLayout.setVerticalGroup(
             jPanelTableroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 398, Short.MAX_VALUE)
         );
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridheight = 5;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 12;
+        gridBagConstraints.gridheight = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanelJuego.add(jPanelTablero, gridBagConstraints);
 
-        jPanelSuperior.setLayout(new javax.swing.BoxLayout(jPanelSuperior, javax.swing.BoxLayout.LINE_AXIS));
-
-        jLabelTiempo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabelTiempo.setText("Tiempo:     ");
-        jPanelSuperior.add(jLabelTiempo);
-
-        jLabelTiempoC.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabelTiempoC.setText("00:00");
-        jPanelSuperior.add(jLabelTiempoC);
-
-        jLabelManzanas.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabelManzanas.setText("      Manzanas:     ");
-        jPanelSuperior.add(jLabelManzanas);
-
-        jLabelManzanasC.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabelManzanasC.setText("0");
-        jPanelSuperior.add(jLabelManzanasC);
-
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/img/logo.png"))); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        jPanelJuego.add(jPanelSuperior, gridBagConstraints);
+        jPanelJuego.add(jLabel3, gridBagConstraints);
 
-        jLabelPuntuacion.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabelPuntuacion.setText("Puntuación:    ");
+        jLabelTiempo.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabelTiempo.setText("Tiempo:     ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 0;
+        jPanelJuego.add(jLabelTiempo, gridBagConstraints);
+
+        jLabelTiempoC.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabelTiempoC.setText("00:00");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 0;
+        jPanelJuego.add(jLabelTiempoC, gridBagConstraints);
+
+        jLabelManzanas.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabelManzanas.setText("      Manzanas:     ");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 0;
+        jPanelJuego.add(jLabelManzanas, gridBagConstraints);
+
+        jLabelManzanasC.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabelManzanasC.setText("0");
+        jPanelJuego.add(jLabelManzanasC, new java.awt.GridBagConstraints());
+
+        jLabelPuntuacion.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabelPuntuacion.setText("     Puntuación:    ");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 9;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         jPanelJuego.add(jLabelPuntuacion, gridBagConstraints);
+        jLabelPuntuacion.getAccessibleContext().setAccessibleName(" Puntuación:    ");
 
-        jLabelPuntuacionC.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabelPuntuacionC.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabelPuntuacionC.setText("0");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.gridx = 11;
+        gridBagConstraints.gridy = 0;
         jPanelJuego.add(jLabelPuntuacionC, gridBagConstraints);
 
-        jLabelVelocidad.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabelVelocidad.setText("Velocidad:    ");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        jPanelJuego.add(jLabelVelocidad, gridBagConstraints);
-
-        jLabelVelocidadC.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabelVelocidadC.setText("0/10");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        jPanelJuego.add(jLabelVelocidadC, gridBagConstraints);
-
-        jPanelEspaciadorUI.setPreferredSize(new java.awt.Dimension(60, 1));
+        jPanelEspaciadorUI.setPreferredSize(new java.awt.Dimension(130, 10));
 
         javax.swing.GroupLayout jPanelEspaciadorUILayout = new javax.swing.GroupLayout(jPanelEspaciadorUI);
         jPanelEspaciadorUI.setLayout(jPanelEspaciadorUILayout);
@@ -482,9 +478,63 @@ public class FormMain extends javax.swing.JFrame implements KeyListener {
         );
 
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 0;
         jPanelJuego.add(jPanelEspaciadorUI, gridBagConstraints);
+
+        jPanelEspaciadorUI1.setPreferredSize(new java.awt.Dimension(150, 10));
+
+        javax.swing.GroupLayout jPanelEspaciadorUI1Layout = new javax.swing.GroupLayout(jPanelEspaciadorUI1);
+        jPanelEspaciadorUI1.setLayout(jPanelEspaciadorUI1Layout);
+        jPanelEspaciadorUI1Layout.setHorizontalGroup(
+            jPanelEspaciadorUI1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanelEspaciadorUI1Layout.setVerticalGroup(
+            jPanelEspaciadorUI1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 0;
+        jPanelJuego.add(jPanelEspaciadorUI1, gridBagConstraints);
+
+        jPanelEspaciadorUI2.setPreferredSize(new java.awt.Dimension(150, 10));
+
+        javax.swing.GroupLayout jPanelEspaciadorUI2Layout = new javax.swing.GroupLayout(jPanelEspaciadorUI2);
+        jPanelEspaciadorUI2.setLayout(jPanelEspaciadorUI2Layout);
+        jPanelEspaciadorUI2Layout.setHorizontalGroup(
+            jPanelEspaciadorUI2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanelEspaciadorUI2Layout.setVerticalGroup(
+            jPanelEspaciadorUI2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        jPanelJuego.add(jPanelEspaciadorUI2, gridBagConstraints);
+
+        jPanelEspaciadorUI3.setPreferredSize(new java.awt.Dimension(130, 10));
+
+        javax.swing.GroupLayout jPanelEspaciadorUI3Layout = new javax.swing.GroupLayout(jPanelEspaciadorUI3);
+        jPanelEspaciadorUI3.setLayout(jPanelEspaciadorUI3Layout);
+        jPanelEspaciadorUI3Layout.setHorizontalGroup(
+            jPanelEspaciadorUI3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanelEspaciadorUI3Layout.setVerticalGroup(
+            jPanelEspaciadorUI3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridy = 0;
+        jPanelJuego.add(jPanelEspaciadorUI3, gridBagConstraints);
 
         jPanelPrincipal.add(jPanelJuego, "PanelJuego");
 
@@ -512,7 +562,6 @@ public class FormMain extends javax.swing.JFrame implements KeyListener {
         // Inicia los contadores
         jLabelManzanasC.setText("0");
         jLabelPuntuacionC.setText("0");
-        jLabelVelocidadC.setText("0/10");
         jLabelTiempoC.setText("00:00");
         // Muestra el panel de juego
         cardLayout.show(jPanelPrincipal, "PanelJuego");
@@ -629,6 +678,7 @@ public class FormMain extends javax.swing.JFrame implements KeyListener {
     private javax.swing.JButton jButtonVolverInfo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabelAjusVelocidad;
     private javax.swing.JLabel jLabelClockImgInfo;
     private javax.swing.JLabel jLabelClockInfo;
@@ -642,18 +692,18 @@ public class FormMain extends javax.swing.JFrame implements KeyListener {
     private javax.swing.JLabel jLabelSerpienteInfo;
     private javax.swing.JLabel jLabelTiempo;
     protected static javax.swing.JLabel jLabelTiempoC;
-    private javax.swing.JLabel jLabelVelocidad;
-    protected static javax.swing.JLabel jLabelVelocidadC;
     private javax.swing.JLabel jLabelVelocidadInfo;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanelEspaciadorUI;
+    private javax.swing.JPanel jPanelEspaciadorUI1;
+    private javax.swing.JPanel jPanelEspaciadorUI2;
+    private javax.swing.JPanel jPanelEspaciadorUI3;
     private javax.swing.JPanel jPanelInfo;
     private javax.swing.JPanel jPanelInicio;
     private javax.swing.JPanel jPanelJuego;
     private javax.swing.JPanel jPanelManzanInfo;
     private javax.swing.JPanel jPanelPrincipal;
     private javax.swing.JPanel jPanelSerpienteInfo;
-    private javax.swing.JPanel jPanelSuperior;
     private javax.swing.JPanel jPanelTablero;
     private javax.swing.JPanel jPanelVelocidadInfo;
     private javax.swing.JRadioButton jRadioButtonVelAlta;

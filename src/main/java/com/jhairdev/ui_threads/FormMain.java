@@ -97,16 +97,6 @@ public class FormMain extends javax.swing.JFrame implements KeyListener {
         jLabelVelocidad = new javax.swing.JLabel();
         jLabelVelocidadC = new javax.swing.JLabel();
         jPanelEspaciadorUI = new javax.swing.JPanel();
-        jPanelPuntuacion = new javax.swing.JPanel();
-        jPanelMejoresPunt = new javax.swing.JPanel();
-        jLabelMejoresPunt = new javax.swing.JLabel();
-        jLabelPuntNombre1 = new javax.swing.JLabel();
-        jLabelPuntNombre2 = new javax.swing.JLabel();
-        jLabelPuntNombre3 = new javax.swing.JLabel();
-        jLabelPuntPuntuacion1 = new javax.swing.JLabel();
-        jLabelPuntPuntuacion2 = new javax.swing.JLabel();
-        jLabelPuntPuntuacion3 = new javax.swing.JLabel();
-        jButtonSalirPunt = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setIconImage(new javax.swing.ImageIcon(getClass().getResource("/recursos/img/logo_mini.png")).getImage());
@@ -456,93 +446,6 @@ public class FormMain extends javax.swing.JFrame implements KeyListener {
 
         jPanelPrincipal.add(jPanelJuego, "PanelJuego");
 
-        jPanelPuntuacion.setBackground(new java.awt.Color(255, 255, 255));
-        java.awt.GridBagLayout jPanelPuntuacionLayout = new java.awt.GridBagLayout();
-        jPanelPuntuacionLayout.columnWidths = new int[] {0};
-        jPanelPuntuacionLayout.rowHeights = new int[] {0, 15, 0};
-        jPanelPuntuacion.setLayout(jPanelPuntuacionLayout);
-
-        jPanelMejoresPunt.setBackground(new java.awt.Color(255, 255, 255));
-        java.awt.GridBagLayout jPanel5Layout = new java.awt.GridBagLayout();
-        jPanel5Layout.columnWidths = new int[] {0, 10, 0};
-        jPanel5Layout.rowHeights = new int[] {0, 10, 0, 10, 0, 10, 0};
-        jPanelMejoresPunt.setLayout(jPanel5Layout);
-
-        jLabelMejoresPunt.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabelMejoresPunt.setText("Los Mejores Puntuados");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 3;
-        jPanelMejoresPunt.add(jLabelMejoresPunt, gridBagConstraints);
-
-        jLabelPuntNombre1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabelPuntNombre1.setText("AAA");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-        jPanelMejoresPunt.add(jLabelPuntNombre1, gridBagConstraints);
-
-        jLabelPuntNombre2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabelPuntNombre2.setText("BBB");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-        jPanelMejoresPunt.add(jLabelPuntNombre2, gridBagConstraints);
-
-        jLabelPuntNombre3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabelPuntNombre3.setText("CCC");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-        jPanelMejoresPunt.add(jLabelPuntNombre3, gridBagConstraints);
-
-        jLabelPuntPuntuacion1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabelPuntPuntuacion1.setText("0");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-        jPanelMejoresPunt.add(jLabelPuntPuntuacion1, gridBagConstraints);
-
-        jLabelPuntPuntuacion2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabelPuntPuntuacion2.setText("0");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-        jPanelMejoresPunt.add(jLabelPuntPuntuacion2, gridBagConstraints);
-
-        jLabelPuntPuntuacion3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabelPuntPuntuacion3.setText("0");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-        jPanelMejoresPunt.add(jLabelPuntPuntuacion3, gridBagConstraints);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        jPanelPuntuacion.add(jPanelMejoresPunt, gridBagConstraints);
-
-        jButtonSalirPunt.setText("Salir");
-        jButtonSalirPunt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonSalirPuntActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        jPanelPuntuacion.add(jButtonSalirPunt, gridBagConstraints);
-
-        jPanelPrincipal.add(jPanelPuntuacion, "PanelPuntuacion");
-
         getContentPane().add(jPanelPrincipal);
 
         pack();
@@ -610,10 +513,6 @@ public class FormMain extends javax.swing.JFrame implements KeyListener {
     private void jButtonVolverInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverInfoActionPerformed
         cardLayout.show(jPanelPrincipal, "PanelInicio");
     }//GEN-LAST:event_jButtonVolverInfoActionPerformed
-
-    private void jButtonSalirPuntActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirPuntActionPerformed
-        this.dispose();
-    }//GEN-LAST:event_jButtonSalirPuntActionPerformed
 
     private void jRadioButtonVelMediaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonVelMediaActionPerformed
 
@@ -685,7 +584,6 @@ public class FormMain extends javax.swing.JFrame implements KeyListener {
     private javax.swing.ButtonGroup buttonGroupVelocidad;
     private javax.swing.JButton jButtonComenzar;
     private javax.swing.JButton jButtonInfo;
-    private javax.swing.JButton jButtonSalirPunt;
     private javax.swing.JButton jButtonVolverInfo;
     private javax.swing.JLabel jLabelAjusVelocidad;
     private javax.swing.JLabel jLabelClockImgInfo;
@@ -695,13 +593,6 @@ public class FormMain extends javax.swing.JFrame implements KeyListener {
     private javax.swing.JLabel jLabelManzanaInfo;
     private javax.swing.JLabel jLabelManzanas;
     protected static javax.swing.JLabel jLabelManzanasC;
-    private javax.swing.JLabel jLabelMejoresPunt;
-    protected static javax.swing.JLabel jLabelPuntNombre1;
-    protected static javax.swing.JLabel jLabelPuntNombre2;
-    protected static javax.swing.JLabel jLabelPuntNombre3;
-    protected static javax.swing.JLabel jLabelPuntPuntuacion1;
-    protected static javax.swing.JLabel jLabelPuntPuntuacion2;
-    protected static javax.swing.JLabel jLabelPuntPuntuacion3;
     private javax.swing.JLabel jLabelPuntuacion;
     protected static javax.swing.JLabel jLabelPuntuacionC;
     private javax.swing.JLabel jLabelSerpienteInfo;
@@ -715,9 +606,7 @@ public class FormMain extends javax.swing.JFrame implements KeyListener {
     private javax.swing.JPanel jPanelInicio;
     private javax.swing.JPanel jPanelJuego;
     private javax.swing.JPanel jPanelManzanInfo;
-    private javax.swing.JPanel jPanelMejoresPunt;
     private javax.swing.JPanel jPanelPrincipal;
-    private javax.swing.JPanel jPanelPuntuacion;
     private javax.swing.JPanel jPanelSerpienteInfo;
     private javax.swing.JPanel jPanelSuperior;
     private javax.swing.JPanel jPanelTablero;

@@ -26,12 +26,7 @@ public class TablaDePuntuacion {
     // Funciones
     public void mostrarTabla(){
         this.tabla = recuperarLista();
-        FormMain.jLabelPuntNombre1.setText(tabla[0][0]);
-        FormMain.jLabelPuntNombre2.setText(tabla[1][0]);
-        FormMain.jLabelPuntNombre3.setText(tabla[2][0]);
-        FormMain.jLabelPuntPuntuacion1.setText(tabla[0][1]);
-        FormMain.jLabelPuntPuntuacion2.setText(tabla[1][1]);
-        FormMain.jLabelPuntPuntuacion3.setText(tabla[2][1]);
+
     }
     public void guardarTabla(int posicion, String nombre, String puntuacion){
         this.tabla = recuperarLista();

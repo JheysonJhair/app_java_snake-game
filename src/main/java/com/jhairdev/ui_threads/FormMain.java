@@ -83,11 +83,9 @@ public class FormMain extends javax.swing.JFrame implements KeyListener {
         jLabelSerpienteInfo = new javax.swing.JLabel();
         jPanelManzanInfo = new javax.swing.JPanel();
         jLabelManzanaInfo = new javax.swing.JLabel();
-        jPanelVelocidadInfo = new javax.swing.JPanel();
-        jLabelVelocidadInfo = new javax.swing.JLabel();
         jLabelClockImgInfo = new javax.swing.JLabel();
-        jLabelClockInfo = new javax.swing.JLabel();
         jButtonVolverInfo = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
         jPanelJuego = new javax.swing.JPanel();
         jPanelTablero = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -263,43 +261,43 @@ public class FormMain extends javax.swing.JFrame implements KeyListener {
 
         jPanelInfo.setBackground(new java.awt.Color(255, 255, 255));
         java.awt.GridBagLayout jPanelInfoLayout = new java.awt.GridBagLayout();
-        jPanelInfoLayout.columnWidths = new int[] {0, 10, 0};
+        jPanelInfoLayout.columnWidths = new int[] {0, 10, 0, 10, 0, 10, 0};
         jPanelInfoLayout.rowHeights = new int[] {0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0};
         jPanelInfo.setLayout(jPanelInfoLayout);
 
-        jLabelInfo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabelInfo.setText("<html>Mientras juegas aparecerán manzanas en el campo.<br>Haz que tu serpiente se alimente de estas manzanas.<br>  Cuidado con chocar contra la pared o contra tu propio cuerpo.</html>");
+        jLabelInfo.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
+        jLabelInfo.setText("Instrucciones!!");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         jPanelInfo.add(jLabelInfo, gridBagConstraints);
 
         jPanelSerpienteInfo.setBackground(new java.awt.Color(0, 0, 0));
-        jPanelSerpienteInfo.setPreferredSize(new java.awt.Dimension(20, 60));
+        jPanelSerpienteInfo.setPreferredSize(new java.awt.Dimension(20, 20));
 
         javax.swing.GroupLayout jPanelSerpienteInfoLayout = new javax.swing.GroupLayout(jPanelSerpienteInfo);
         jPanelSerpienteInfo.setLayout(jPanelSerpienteInfoLayout);
         jPanelSerpienteInfoLayout.setHorizontalGroup(
             jPanelSerpienteInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 20, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         jPanelSerpienteInfoLayout.setVerticalGroup(
             jPanelSerpienteInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 60, Short.MAX_VALUE)
+            .addGap(0, 20, Short.MAX_VALUE)
         );
 
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         jPanelInfo.add(jPanelSerpienteInfo, gridBagConstraints);
 
-        jLabelSerpienteInfo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabelSerpienteInfo.setText("Esta es tu serpiente. Usa las flechas direccionales o W A S D para moverte por el tablero.");
+        jLabelSerpienteInfo.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
+        jLabelSerpienteInfo.setText("Esta es tu serpiente. Usa el mouse  para moverte por el tablero.");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         jPanelInfo.add(jLabelSerpienteInfo, gridBagConstraints);
@@ -311,7 +309,7 @@ public class FormMain extends javax.swing.JFrame implements KeyListener {
         jPanelManzanInfo.setLayout(jPanelManzanInfoLayout);
         jPanelManzanInfoLayout.setHorizontalGroup(
             jPanelManzanInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 20, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         jPanelManzanInfoLayout.setVerticalGroup(
             jPanelManzanInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -319,63 +317,31 @@ public class FormMain extends javax.swing.JFrame implements KeyListener {
         );
 
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         jPanelInfo.add(jPanelManzanInfo, gridBagConstraints);
 
-        jLabelManzanaInfo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabelManzanaInfo.setText("Las manzanas te dan 100 puntos pero tambien añaden dificultad haciendo mas grande a la serpiente.");
+        jLabelManzanaInfo.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
+        jLabelManzanaInfo.setText("Las manzanas te dan 100 puntos pero tambien la serpiente crece mas grande");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         jPanelInfo.add(jLabelManzanaInfo, gridBagConstraints);
 
-        jPanelVelocidadInfo.setBackground(java.awt.Color.blue);
-        jPanelVelocidadInfo.setPreferredSize(new java.awt.Dimension(20, 20));
-
-        javax.swing.GroupLayout jPanelVelocidadInfoLayout = new javax.swing.GroupLayout(jPanelVelocidadInfo);
-        jPanelVelocidadInfo.setLayout(jPanelVelocidadInfoLayout);
-        jPanelVelocidadInfoLayout.setHorizontalGroup(
-            jPanelVelocidadInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 20, Short.MAX_VALUE)
-        );
-        jPanelVelocidadInfoLayout.setVerticalGroup(
-            jPanelVelocidadInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 20, Short.MAX_VALUE)
-        );
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-        jPanelInfo.add(jPanelVelocidadInfo, gridBagConstraints);
-
-        jLabelVelocidadInfo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabelVelocidadInfo.setText("Los aumentos de velocidad no dan puntos, pero aumentan tu velocidad hasta 10 veces.");
+        jLabelClockImgInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/img/info_snake.png"))); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-        jPanelInfo.add(jLabelVelocidadInfo, gridBagConstraints);
-
-        jLabelClockImgInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/img/clock_mini.png"))); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         jPanelInfo.add(jLabelClockImgInfo, gridBagConstraints);
 
-        jLabelClockInfo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabelClockInfo.setText("¡El tiempo vuela! Por cada segundo perderas 10 puntos.");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 8;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-        jPanelInfo.add(jLabelClockInfo, gridBagConstraints);
-
-        jButtonVolverInfo.setText("Volver");
+        jButtonVolverInfo.setBackground(new java.awt.Color(0, 0, 0));
+        jButtonVolverInfo.setFont(new java.awt.Font("Agency FB", 1, 18)); // NOI18N
+        jButtonVolverInfo.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonVolverInfo.setText("Volver  atrás");
+        jButtonVolverInfo.setPreferredSize(new java.awt.Dimension(222, 35));
         jButtonVolverInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonVolverInfoActionPerformed(evt);
@@ -383,8 +349,16 @@ public class FormMain extends javax.swing.JFrame implements KeyListener {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridwidth = 3;
         jPanelInfo.add(jButtonVolverInfo, gridBagConstraints);
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/img/logo_info.png"))); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridheight = 13;
+        jPanelInfo.add(jLabel4, gridBagConstraints);
 
         jPanelPrincipal.add(jPanelInfo, "PanelInfo");
 
@@ -679,9 +653,9 @@ public class FormMain extends javax.swing.JFrame implements KeyListener {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabelAjusVelocidad;
     private javax.swing.JLabel jLabelClockImgInfo;
-    private javax.swing.JLabel jLabelClockInfo;
     private javax.swing.JLabel jLabelInfo;
     private javax.swing.JLabel jLabelLogo;
     private javax.swing.JLabel jLabelManzanaInfo;
@@ -692,7 +666,6 @@ public class FormMain extends javax.swing.JFrame implements KeyListener {
     private javax.swing.JLabel jLabelSerpienteInfo;
     private javax.swing.JLabel jLabelTiempo;
     protected static javax.swing.JLabel jLabelTiempoC;
-    private javax.swing.JLabel jLabelVelocidadInfo;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanelEspaciadorUI;
     private javax.swing.JPanel jPanelEspaciadorUI1;
@@ -705,7 +678,6 @@ public class FormMain extends javax.swing.JFrame implements KeyListener {
     private javax.swing.JPanel jPanelPrincipal;
     private javax.swing.JPanel jPanelSerpienteInfo;
     private javax.swing.JPanel jPanelTablero;
-    private javax.swing.JPanel jPanelVelocidadInfo;
     private javax.swing.JRadioButton jRadioButtonVelAlta;
     private javax.swing.JRadioButton jRadioButtonVelBaja;
     private javax.swing.JRadioButton jRadioButtonVelMedia;

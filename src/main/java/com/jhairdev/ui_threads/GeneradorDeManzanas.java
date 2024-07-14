@@ -1,12 +1,11 @@
 package com.jhairdev.ui_threads;
 
-import com.jhairdev.ui_threads.FormMain;
 import java.awt.Color;
 import java.util.Random;
 
 /**
  *
- * @author Alejandro González Navarro
+ * @author Jhair
  */
 public class GeneradorDeManzanas extends Thread {
     private boolean parar;
@@ -28,23 +27,22 @@ public class GeneradorDeManzanas extends Thread {
 
     @Override
     public void run() {
-        generarManzana(); // Genera una manzana al inicio
-        startTime = System.currentTimeMillis(); // Initialize start time
+        generarManzana(); 
+        startTime = System.currentTimeMillis(); 
 
         while (!this.parar) {
             try {
-                Thread.sleep(100); // Check every 100 milliseconds
+                Thread.sleep(100); 
             } catch (InterruptedException ex) {
                 System.out.println("Generador de manzanas: Interrupción - Hilo parado");
             }
-            
             synchronized (this) {
                 if (manzanaComida) {
                     manzanaComida = false;
-                    startTime = System.currentTimeMillis(); // Reset start time when an apple is eaten
+                    startTime = System.currentTimeMillis(); 
                 } else if (System.currentTimeMillis() - startTime >= 5000) {
                     moverManzana();
-                    startTime = System.currentTimeMillis(); // Reset start time after moving the apple
+                    startTime = System.currentTimeMillis(); 
                 }
             }
         }
@@ -60,7 +58,6 @@ public class GeneradorDeManzanas extends Thread {
             if (FormMain.tablero[x][y].getBackground() == Color.WHITE) {
                 FormMain.tablero[x][y].setBackground(Color.RED);
                 manzanaColocada = true;
-                // log
                 System.out.println("Generador de manzanas: Manzana colocada");
             }
         }
@@ -68,17 +65,17 @@ public class GeneradorDeManzanas extends Thread {
 
     private synchronized void moverManzana() {
         if (FormMain.tablero[x][y].getBackground() == Color.RED) {
-            FormMain.tablero[x][y].setBackground(Color.WHITE); // Elimina la manzana actual
+            FormMain.tablero[x][y].setBackground(Color.WHITE);
         }
         generarManzana();
     }
 
     public synchronized void manzanaDevorada() {
-        // Añade uno al contador de manzanas
-        FormMain.jLabelPuntuacionC.setText((Integer.parseInt(FormMain.jLabelPuntuacionC.getText()) + 100) + "");
-        FormMain.jLabelManzanasC.setText((Integer.parseInt(FormMain.jLabelManzanasC.getText()) + 1) + "");
-        moverManzana(); // Mueve la manzana inmediatamente
-        manzanaComida = true; // Set flag to indicate the apple was eaten
+
+        FormMain.lblPuntuacionDato.setText((Integer.parseInt(FormMain.lblPuntuacionDato.getText()) + 100) + "");
+        FormMain.lblManzanasDato.setText((Integer.parseInt(FormMain.lblManzanasDato.getText()) + 1) + "");
+        moverManzana(); 
+        manzanaComida = true; 
     }
 
     public void pararDeGenerar() {

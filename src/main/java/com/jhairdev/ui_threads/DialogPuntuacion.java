@@ -1,11 +1,9 @@
 package com.jhairdev.ui_threads;
-
 /**
  *
- * @author Alejandro González Navarro
+ * @author Jhair
  */
 public class DialogPuntuacion extends javax.swing.JDialog {
-    private int posicion;
     private TablaDePuntuacion tablaDePuntuacion;
 
     /**
@@ -19,22 +17,18 @@ public class DialogPuntuacion extends javax.swing.JDialog {
         
     }
     public void iniciar(){
-        // Pone los datos
-        jLabelPuntuacionC.setText(FormMain.jLabelPuntuacionC.getText());
-        jLabelManzanasC.setText(FormMain.jLabelManzanasC.getText());
-        jLabelTiempoC.setText(FormMain.jLabelTiempoC.getText());
+        lblPuntuacionDato.setText(FormMain.lblPuntuacionDato.getText());
+        lblManzanasDato.setText(FormMain.lblManzanasDato.getText());
+        lblTiempoDato.setText(FormMain.lblTiempoDato.getText());
+        
         String[][] string = tablaDePuntuacion.recuperarLista();
-        // Si su puntuación es mas alta muestra el botón de guardar
         for (int i = 0; i < 3; i++) {
-            if(Integer.parseInt(string[i][1]) <= Integer.parseInt(this.jLabelPuntuacionC.getText())){
-                // Al no poder escribir no tiene sentido permitir guardar su nombre.
-                //this.jButtonGuardar.setVisible(true);
-                //this.jTextFieldNombre.setVisible(true);
-                posicion = i;
+            if(Integer.parseInt(string[i][1]) <= Integer.parseInt(this.lblPuntuacionDato.getText())){
                 break;
             }
         }
     }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -45,13 +39,13 @@ public class DialogPuntuacion extends javax.swing.JDialog {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        jLabelPuntuacion = new javax.swing.JLabel();
-        jLabelPuntuacionC = new javax.swing.JLabel();
-        jLabelManzanas = new javax.swing.JLabel();
-        jLabelManzanasC = new javax.swing.JLabel();
-        jLabelTiempo = new javax.swing.JLabel();
-        jLabelTiempoC = new javax.swing.JLabel();
-        jButtonSalir = new javax.swing.JButton();
+        lblPuntuacion = new javax.swing.JLabel();
+        lblPuntuacionDato = new javax.swing.JLabel();
+        lblManzanas = new javax.swing.JLabel();
+        lblManzanasDato = new javax.swing.JLabel();
+        lblTiempo = new javax.swing.JLabel();
+        lblTiempoDato = new javax.swing.JLabel();
+        btnSalir = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -67,68 +61,68 @@ public class DialogPuntuacion extends javax.swing.JDialog {
         layout.rowHeights = new int[] {0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0};
         getContentPane().setLayout(layout);
 
-        jLabelPuntuacion.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        jLabelPuntuacion.setText("Puntuación:");
+        lblPuntuacion.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        lblPuntuacion.setText("Puntuación:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(0, 15, 0, 0);
-        getContentPane().add(jLabelPuntuacion, gridBagConstraints);
+        getContentPane().add(lblPuntuacion, gridBagConstraints);
 
-        jLabelPuntuacionC.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        jLabelPuntuacionC.setText("0");
+        lblPuntuacionDato.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        lblPuntuacionDato.setText("0");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 15);
-        getContentPane().add(jLabelPuntuacionC, gridBagConstraints);
+        getContentPane().add(lblPuntuacionDato, gridBagConstraints);
 
-        jLabelManzanas.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        jLabelManzanas.setText("Manzanas");
+        lblManzanas.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        lblManzanas.setText("Manzanas");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(0, 15, 0, 0);
-        getContentPane().add(jLabelManzanas, gridBagConstraints);
+        getContentPane().add(lblManzanas, gridBagConstraints);
 
-        jLabelManzanasC.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        jLabelManzanasC.setText("0");
+        lblManzanasDato.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        lblManzanasDato.setText("0");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 15);
-        getContentPane().add(jLabelManzanasC, gridBagConstraints);
+        getContentPane().add(lblManzanasDato, gridBagConstraints);
 
-        jLabelTiempo.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        jLabelTiempo.setText("Tiempo");
+        lblTiempo.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        lblTiempo.setText("Tiempo");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(0, 15, 0, 0);
-        getContentPane().add(jLabelTiempo, gridBagConstraints);
+        getContentPane().add(lblTiempo, gridBagConstraints);
 
-        jLabelTiempoC.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        jLabelTiempoC.setText("00:00");
+        lblTiempoDato.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        lblTiempoDato.setText("00:00");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 15);
-        getContentPane().add(jLabelTiempoC, gridBagConstraints);
+        getContentPane().add(lblTiempoDato, gridBagConstraints);
 
-        jButtonSalir.setBackground(new java.awt.Color(0, 0, 0));
-        jButtonSalir.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jButtonSalir.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonSalir.setText("Salir");
-        jButtonSalir.setPreferredSize(new java.awt.Dimension(200, 23));
-        jButtonSalir.addActionListener(new java.awt.event.ActionListener() {
+        btnSalir.setBackground(new java.awt.Color(0, 0, 0));
+        btnSalir.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        btnSalir.setForeground(new java.awt.Color(255, 255, 255));
+        btnSalir.setText("Salir");
+        btnSalir.setPreferredSize(new java.awt.Dimension(200, 23));
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonSalirActionPerformed(evt);
+                btnSalirActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -136,7 +130,7 @@ public class DialogPuntuacion extends javax.swing.JDialog {
         gridBagConstraints.gridy = 12;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.insets = new java.awt.Insets(0, 15, 0, 0);
-        getContentPane().add(jButtonSalir, gridBagConstraints);
+        getContentPane().add(btnSalir, gridBagConstraints);
 
         jPanel2.setBackground(new java.awt.Color(217, 217, 217));
         jPanel2.setPreferredSize(new java.awt.Dimension(200, 65));
@@ -208,29 +202,28 @@ public class DialogPuntuacion extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         this.dispose();
-    }//GEN-LAST:event_jButtonSalirActionPerformed
+    }//GEN-LAST:event_btnSalirActionPerformed
 
     /**
      * @param args the command line arguments
      */
 
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnSalir;
     private javax.swing.JPanel espacio;
     private javax.swing.JPanel espacio1;
     private javax.swing.JPanel espacio2;
     private javax.swing.JPanel espacio3;
-    private javax.swing.JButton jButtonSalir;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabelManzanas;
-    private javax.swing.JLabel jLabelManzanasC;
-    private javax.swing.JLabel jLabelPuntuacion;
-    private javax.swing.JLabel jLabelPuntuacionC;
-    private javax.swing.JLabel jLabelTiempo;
-    private javax.swing.JLabel jLabelTiempoC;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel lblManzanas;
+    private javax.swing.JLabel lblManzanasDato;
+    private javax.swing.JLabel lblPuntuacion;
+    private javax.swing.JLabel lblPuntuacionDato;
+    private javax.swing.JLabel lblTiempo;
+    private javax.swing.JLabel lblTiempoDato;
     // End of variables declaration//GEN-END:variables
 }

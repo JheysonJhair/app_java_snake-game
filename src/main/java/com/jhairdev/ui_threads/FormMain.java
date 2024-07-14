@@ -10,36 +10,28 @@ import java.awt.event.KeyListener;
 
 /**
  *
- * @author Alejandro González Navarro
+ * @author Jhair
  */
 public class FormMain extends javax.swing.JFrame implements KeyListener {
-    // Layout que muestra los diferentes paneles del aplicativo
     private CardLayout cardLayout = new CardLayout();
-    // Panel usado para el juego
     protected static Panel[][] tablero;
-    // Hilo serpiente, se encargar de la lógica de la serpiente
+
     private Serpiente serpiente;
-    // Clase que se encarga de guardar y leer información de la tabla de puntuaciones
     private TablaDePuntuacion tablaDePuntuacion;
-    // Paneles de ancho del tablero 
+
     private int width;
-    // Paneles de alto del tablero 
     private int height;
-    // velocidad que llevará la serpiente
     private int velocidad;
-    /**
-     * Creates new form NewJFrame
-     */
+
     public FormMain() {
         initComponents();
-        // Ajustes iniciales
         this.setLocationRelativeTo(null);
         this.width = 70;
         this.height = 34;
         this.velocidad = 300;
         addKeyListener(this);
-        cardLayout = (CardLayout)jPanelPrincipal.getLayout();
-        cardLayout.show(jPanelPrincipal, "PanelInicio");
+        cardLayout = (CardLayout)pnlPrincipal.getLayout();
+        cardLayout.show(pnlPrincipal, "PanelInicio");
         tablaDePuntuacion = new TablaDePuntuacion();
     }
 
@@ -65,36 +57,36 @@ public class FormMain extends javax.swing.JFrame implements KeyListener {
         buttonGroupDificultad = new javax.swing.ButtonGroup();
         buttonGroupTamaño = new javax.swing.ButtonGroup();
         buttonGroupVelocidad = new javax.swing.ButtonGroup();
-        jPanelPrincipal = new javax.swing.JPanel();
-        jPanelInicio = new javax.swing.JPanel();
+        pnlPrincipal = new javax.swing.JPanel();
+        pnlInicio = new javax.swing.JPanel();
         jLabelLogo = new javax.swing.JLabel();
-        jLabelAjusVelocidad = new javax.swing.JLabel();
-        jRadioButtonVelBaja = new javax.swing.JRadioButton();
-        jRadioButtonVelMedia = new javax.swing.JRadioButton();
-        jRadioButtonVelAlta = new javax.swing.JRadioButton();
-        jButtonComenzar = new javax.swing.JButton();
-        jButtonInfo = new javax.swing.JButton();
+        lblAjusVelocidad = new javax.swing.JLabel();
+        rbVelBaja = new javax.swing.JRadioButton();
+        rbVelMedia = new javax.swing.JRadioButton();
+        rbVelAlta = new javax.swing.JRadioButton();
+        btnComenzar = new javax.swing.JButton();
+        btnInfo = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jPanelInfo = new javax.swing.JPanel();
+        pnlInfo = new javax.swing.JPanel();
         jLabelInfo = new javax.swing.JLabel();
         jPanelSerpienteInfo = new javax.swing.JPanel();
         jLabelSerpienteInfo = new javax.swing.JLabel();
         jPanelManzanInfo = new javax.swing.JPanel();
         jLabelManzanaInfo = new javax.swing.JLabel();
         jLabelClockImgInfo = new javax.swing.JLabel();
-        jButtonVolverInfo = new javax.swing.JButton();
+        btnVolverInfo = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        jPanelJuego = new javax.swing.JPanel();
+        pnlJuego = new javax.swing.JPanel();
         jPanelTablero = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jLabelTiempo = new javax.swing.JLabel();
-        jLabelTiempoC = new javax.swing.JLabel();
-        jLabelManzanas = new javax.swing.JLabel();
-        jLabelManzanasC = new javax.swing.JLabel();
-        jLabelPuntuacion = new javax.swing.JLabel();
-        jLabelPuntuacionC = new javax.swing.JLabel();
+        lblTiempo = new javax.swing.JLabel();
+        lblTiempoDato = new javax.swing.JLabel();
+        lblManzanas = new javax.swing.JLabel();
+        lblManzanasDato = new javax.swing.JLabel();
+        lblPuntuacion = new javax.swing.JLabel();
+        lblPuntuacionDato = new javax.swing.JLabel();
         jPanelEspaciadorUI = new javax.swing.JPanel();
         jPanelEspaciadorUI1 = new javax.swing.JPanel();
         jPanelEspaciadorUI2 = new javax.swing.JPanel();
@@ -106,17 +98,17 @@ public class FormMain extends javax.swing.JFrame implements KeyListener {
         setResizable(false);
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.LINE_AXIS));
 
-        jPanelPrincipal.setMinimumSize(new java.awt.Dimension(600, 450));
-        jPanelPrincipal.setPreferredSize(new java.awt.Dimension(600, 450));
-        jPanelPrincipal.setLayout(new java.awt.CardLayout());
+        pnlPrincipal.setMinimumSize(new java.awt.Dimension(600, 450));
+        pnlPrincipal.setPreferredSize(new java.awt.Dimension(600, 450));
+        pnlPrincipal.setLayout(new java.awt.CardLayout());
 
-        jPanelInicio.setBackground(new java.awt.Color(255, 255, 255));
-        jPanelInicio.setMinimumSize(new java.awt.Dimension(600, 450));
-        jPanelInicio.setPreferredSize(new java.awt.Dimension(600, 450));
+        pnlInicio.setBackground(new java.awt.Color(255, 255, 255));
+        pnlInicio.setMinimumSize(new java.awt.Dimension(600, 450));
+        pnlInicio.setPreferredSize(new java.awt.Dimension(600, 450));
         java.awt.GridBagLayout jPanelInicioLayout = new java.awt.GridBagLayout();
         jPanelInicioLayout.columnWidths = new int[] {0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0};
         jPanelInicioLayout.rowHeights = new int[] {0, 15, 0, 15, 0, 15, 0, 15, 0};
-        jPanelInicio.setLayout(jPanelInicioLayout);
+        pnlInicio.setLayout(jPanelInicioLayout);
 
         jLabelLogo.setFont(new java.awt.Font("Tahoma", 1, 60)); // NOI18N
         jLabelLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/img/logo_snake.png"))); // NOI18N
@@ -126,69 +118,69 @@ public class FormMain extends javax.swing.JFrame implements KeyListener {
         gridBagConstraints.gridwidth = 11;
         gridBagConstraints.ipadx = 28;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 15, 0);
-        jPanelInicio.add(jLabelLogo, gridBagConstraints);
+        pnlInicio.add(jLabelLogo, gridBagConstraints);
 
-        jLabelAjusVelocidad.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabelAjusVelocidad.setText("Seleccione la dificultad:");
+        lblAjusVelocidad.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblAjusVelocidad.setText("Seleccione la dificultad:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanelInicio.add(jLabelAjusVelocidad, gridBagConstraints);
+        pnlInicio.add(lblAjusVelocidad, gridBagConstraints);
 
-        jRadioButtonVelBaja.setBackground(new java.awt.Color(255, 255, 255));
-        buttonGroupVelocidad.add(jRadioButtonVelBaja);
-        jRadioButtonVelBaja.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
-        jRadioButtonVelBaja.setSelected(true);
-        jRadioButtonVelBaja.setText("Fácil");
-        jRadioButtonVelBaja.addActionListener(new java.awt.event.ActionListener() {
+        rbVelBaja.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroupVelocidad.add(rbVelBaja);
+        rbVelBaja.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
+        rbVelBaja.setSelected(true);
+        rbVelBaja.setText("Fácil");
+        rbVelBaja.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButtonVelBajaActionPerformed(evt);
+                rbVelBajaActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanelInicio.add(jRadioButtonVelBaja, gridBagConstraints);
+        pnlInicio.add(rbVelBaja, gridBagConstraints);
 
-        jRadioButtonVelMedia.setBackground(new java.awt.Color(255, 255, 255));
-        buttonGroupVelocidad.add(jRadioButtonVelMedia);
-        jRadioButtonVelMedia.setText("Media");
-        jRadioButtonVelMedia.addActionListener(new java.awt.event.ActionListener() {
+        rbVelMedia.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroupVelocidad.add(rbVelMedia);
+        rbVelMedia.setText("Media");
+        rbVelMedia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButtonVelMediaActionPerformed(evt);
+                rbVelMediaActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanelInicio.add(jRadioButtonVelMedia, gridBagConstraints);
+        pnlInicio.add(rbVelMedia, gridBagConstraints);
 
-        jRadioButtonVelAlta.setBackground(new java.awt.Color(255, 255, 255));
-        buttonGroupVelocidad.add(jRadioButtonVelAlta);
-        jRadioButtonVelAlta.setText("Difícil");
-        jRadioButtonVelAlta.addActionListener(new java.awt.event.ActionListener() {
+        rbVelAlta.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroupVelocidad.add(rbVelAlta);
+        rbVelAlta.setText("Difícil");
+        rbVelAlta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButtonVelAltaActionPerformed(evt);
+                rbVelAltaActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
         gridBagConstraints.gridy = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanelInicio.add(jRadioButtonVelAlta, gridBagConstraints);
+        pnlInicio.add(rbVelAlta, gridBagConstraints);
 
-        jButtonComenzar.setBackground(new java.awt.Color(0, 0, 0));
-        jButtonComenzar.setFont(new java.awt.Font("Segoe UI Variable", 0, 18)); // NOI18N
-        jButtonComenzar.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonComenzar.setText("Iniciar juego");
-        jButtonComenzar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButtonComenzar.setNextFocusableComponent(this);
-        jButtonComenzar.addActionListener(new java.awt.event.ActionListener() {
+        btnComenzar.setBackground(new java.awt.Color(0, 0, 0));
+        btnComenzar.setFont(new java.awt.Font("Segoe UI Variable", 0, 18)); // NOI18N
+        btnComenzar.setForeground(new java.awt.Color(255, 255, 255));
+        btnComenzar.setText("Iniciar juego");
+        btnComenzar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnComenzar.setNextFocusableComponent(this);
+        btnComenzar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonComenzarActionPerformed(evt);
+                btnComenzarActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -199,24 +191,24 @@ public class FormMain extends javax.swing.JFrame implements KeyListener {
         gridBagConstraints.ipadx = 10;
         gridBagConstraints.ipady = 10;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanelInicio.add(jButtonComenzar, gridBagConstraints);
+        pnlInicio.add(btnComenzar, gridBagConstraints);
 
-        jButtonInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/img/info_snake.png"))); // NOI18N
-        jButtonInfo.setBorder(null);
-        jButtonInfo.setBorderPainted(false);
-        jButtonInfo.setContentAreaFilled(false);
-        jButtonInfo.setFocusPainted(false);
-        jButtonInfo.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        jButtonInfo.addActionListener(new java.awt.event.ActionListener() {
+        btnInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/img/info_snake.png"))); // NOI18N
+        btnInfo.setBorder(null);
+        btnInfo.setBorderPainted(false);
+        btnInfo.setContentAreaFilled(false);
+        btnInfo.setFocusPainted(false);
+        btnInfo.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        btnInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonInfoActionPerformed(evt);
+                btnInfoActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
         gridBagConstraints.gridy = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
-        jPanelInicio.add(jButtonInfo, gridBagConstraints);
+        pnlInicio.add(btnInfo, gridBagConstraints);
 
         jPanel1.setPreferredSize(new java.awt.Dimension(420, 65));
 
@@ -255,15 +247,15 @@ public class FormMain extends javax.swing.JFrame implements KeyListener {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 9;
-        jPanelInicio.add(jPanel1, gridBagConstraints);
+        pnlInicio.add(jPanel1, gridBagConstraints);
 
-        jPanelPrincipal.add(jPanelInicio, "PanelInicio");
+        pnlPrincipal.add(pnlInicio, "PanelInicio");
 
-        jPanelInfo.setBackground(new java.awt.Color(255, 255, 255));
+        pnlInfo.setBackground(new java.awt.Color(255, 255, 255));
         java.awt.GridBagLayout jPanelInfoLayout = new java.awt.GridBagLayout();
         jPanelInfoLayout.columnWidths = new int[] {0, 10, 0, 10, 0, 10, 0};
         jPanelInfoLayout.rowHeights = new int[] {0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0};
-        jPanelInfo.setLayout(jPanelInfoLayout);
+        pnlInfo.setLayout(jPanelInfoLayout);
 
         jLabelInfo.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
         jLabelInfo.setText("Instrucciones!!");
@@ -272,7 +264,7 @@ public class FormMain extends javax.swing.JFrame implements KeyListener {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-        jPanelInfo.add(jLabelInfo, gridBagConstraints);
+        pnlInfo.add(jLabelInfo, gridBagConstraints);
 
         jPanelSerpienteInfo.setBackground(new java.awt.Color(0, 0, 0));
         jPanelSerpienteInfo.setPreferredSize(new java.awt.Dimension(20, 20));
@@ -292,7 +284,7 @@ public class FormMain extends javax.swing.JFrame implements KeyListener {
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-        jPanelInfo.add(jPanelSerpienteInfo, gridBagConstraints);
+        pnlInfo.add(jPanelSerpienteInfo, gridBagConstraints);
 
         jLabelSerpienteInfo.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         jLabelSerpienteInfo.setText("Esta es tu serpiente. Usa el mouse  para moverte por el tablero.");
@@ -300,7 +292,7 @@ public class FormMain extends javax.swing.JFrame implements KeyListener {
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-        jPanelInfo.add(jLabelSerpienteInfo, gridBagConstraints);
+        pnlInfo.add(jLabelSerpienteInfo, gridBagConstraints);
 
         jPanelManzanInfo.setBackground(java.awt.Color.red);
         jPanelManzanInfo.setPreferredSize(new java.awt.Dimension(20, 20));
@@ -320,7 +312,7 @@ public class FormMain extends javax.swing.JFrame implements KeyListener {
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-        jPanelInfo.add(jPanelManzanInfo, gridBagConstraints);
+        pnlInfo.add(jPanelManzanInfo, gridBagConstraints);
 
         jLabelManzanaInfo.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         jLabelManzanaInfo.setText("Las manzanas te dan 100 puntos pero tambien la serpiente crece mas grande");
@@ -328,43 +320,43 @@ public class FormMain extends javax.swing.JFrame implements KeyListener {
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-        jPanelInfo.add(jLabelManzanaInfo, gridBagConstraints);
+        pnlInfo.add(jLabelManzanaInfo, gridBagConstraints);
 
         jLabelClockImgInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/img/info_snake.png"))); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-        jPanelInfo.add(jLabelClockImgInfo, gridBagConstraints);
+        pnlInfo.add(jLabelClockImgInfo, gridBagConstraints);
 
-        jButtonVolverInfo.setBackground(new java.awt.Color(0, 0, 0));
-        jButtonVolverInfo.setFont(new java.awt.Font("Agency FB", 1, 18)); // NOI18N
-        jButtonVolverInfo.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonVolverInfo.setText("Volver  atrás");
-        jButtonVolverInfo.setPreferredSize(new java.awt.Dimension(222, 35));
-        jButtonVolverInfo.addActionListener(new java.awt.event.ActionListener() {
+        btnVolverInfo.setBackground(new java.awt.Color(0, 0, 0));
+        btnVolverInfo.setFont(new java.awt.Font("Agency FB", 1, 18)); // NOI18N
+        btnVolverInfo.setForeground(new java.awt.Color(255, 255, 255));
+        btnVolverInfo.setText("Volver  atrás");
+        btnVolverInfo.setPreferredSize(new java.awt.Dimension(222, 35));
+        btnVolverInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonVolverInfoActionPerformed(evt);
+                btnVolverInfoActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 10;
         gridBagConstraints.gridwidth = 3;
-        jPanelInfo.add(jButtonVolverInfo, gridBagConstraints);
+        pnlInfo.add(btnVolverInfo, gridBagConstraints);
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/img/logo_info.png"))); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridheight = 13;
-        jPanelInfo.add(jLabel4, gridBagConstraints);
+        pnlInfo.add(jLabel4, gridBagConstraints);
 
-        jPanelPrincipal.add(jPanelInfo, "PanelInfo");
+        pnlPrincipal.add(pnlInfo, "PanelInfo");
 
-        jPanelJuego.setMinimumSize(new java.awt.Dimension(600, 450));
-        jPanelJuego.setPreferredSize(new java.awt.Dimension(600, 450));
-        jPanelJuego.setLayout(new java.awt.GridBagLayout());
+        pnlJuego.setMinimumSize(new java.awt.Dimension(600, 450));
+        pnlJuego.setPreferredSize(new java.awt.Dimension(600, 450));
+        pnlJuego.setLayout(new java.awt.GridBagLayout());
 
         jPanelTablero.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanelTablero.setMaximumSize(new java.awt.Dimension(800, 800));
@@ -389,54 +381,54 @@ public class FormMain extends javax.swing.JFrame implements KeyListener {
         gridBagConstraints.gridwidth = 12;
         gridBagConstraints.gridheight = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanelJuego.add(jPanelTablero, gridBagConstraints);
+        pnlJuego.add(jPanelTablero, gridBagConstraints);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/img/logo.png"))); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        jPanelJuego.add(jLabel3, gridBagConstraints);
+        pnlJuego.add(jLabel3, gridBagConstraints);
 
-        jLabelTiempo.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabelTiempo.setText("Tiempo:     ");
+        lblTiempo.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        lblTiempo.setText("Tiempo:     ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
-        jPanelJuego.add(jLabelTiempo, gridBagConstraints);
+        pnlJuego.add(lblTiempo, gridBagConstraints);
 
-        jLabelTiempoC.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabelTiempoC.setText("00:00");
+        lblTiempoDato.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        lblTiempoDato.setText("00:00");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 0;
-        jPanelJuego.add(jLabelTiempoC, gridBagConstraints);
+        pnlJuego.add(lblTiempoDato, gridBagConstraints);
 
-        jLabelManzanas.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabelManzanas.setText("      Manzanas:     ");
+        lblManzanas.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        lblManzanas.setText("      Manzanas:     ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 0;
-        jPanelJuego.add(jLabelManzanas, gridBagConstraints);
+        pnlJuego.add(lblManzanas, gridBagConstraints);
 
-        jLabelManzanasC.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabelManzanasC.setText("0");
-        jPanelJuego.add(jLabelManzanasC, new java.awt.GridBagConstraints());
+        lblManzanasDato.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        lblManzanasDato.setText("0");
+        pnlJuego.add(lblManzanasDato, new java.awt.GridBagConstraints());
 
-        jLabelPuntuacion.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabelPuntuacion.setText("     Puntuación:    ");
+        lblPuntuacion.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        lblPuntuacion.setText("     Puntuación:    ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 9;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        jPanelJuego.add(jLabelPuntuacion, gridBagConstraints);
-        jLabelPuntuacion.getAccessibleContext().setAccessibleName(" Puntuación:    ");
+        pnlJuego.add(lblPuntuacion, gridBagConstraints);
+        lblPuntuacion.getAccessibleContext().setAccessibleName(" Puntuación:    ");
 
-        jLabelPuntuacionC.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabelPuntuacionC.setText("0");
+        lblPuntuacionDato.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        lblPuntuacionDato.setText("0");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 11;
         gridBagConstraints.gridy = 0;
-        jPanelJuego.add(jLabelPuntuacionC, gridBagConstraints);
+        pnlJuego.add(lblPuntuacionDato, gridBagConstraints);
 
         jPanelEspaciadorUI.setPreferredSize(new java.awt.Dimension(130, 10));
 
@@ -454,7 +446,7 @@ public class FormMain extends javax.swing.JFrame implements KeyListener {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 0;
-        jPanelJuego.add(jPanelEspaciadorUI, gridBagConstraints);
+        pnlJuego.add(jPanelEspaciadorUI, gridBagConstraints);
 
         jPanelEspaciadorUI1.setPreferredSize(new java.awt.Dimension(150, 10));
 
@@ -472,7 +464,7 @@ public class FormMain extends javax.swing.JFrame implements KeyListener {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 0;
-        jPanelJuego.add(jPanelEspaciadorUI1, gridBagConstraints);
+        pnlJuego.add(jPanelEspaciadorUI1, gridBagConstraints);
 
         jPanelEspaciadorUI2.setPreferredSize(new java.awt.Dimension(150, 10));
 
@@ -490,7 +482,7 @@ public class FormMain extends javax.swing.JFrame implements KeyListener {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
-        jPanelJuego.add(jPanelEspaciadorUI2, gridBagConstraints);
+        pnlJuego.add(jPanelEspaciadorUI2, gridBagConstraints);
 
         jPanelEspaciadorUI3.setPreferredSize(new java.awt.Dimension(130, 10));
 
@@ -508,101 +500,80 @@ public class FormMain extends javax.swing.JFrame implements KeyListener {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
         gridBagConstraints.gridy = 0;
-        jPanelJuego.add(jPanelEspaciadorUI3, gridBagConstraints);
+        pnlJuego.add(jPanelEspaciadorUI3, gridBagConstraints);
 
-        jPanelPrincipal.add(jPanelJuego, "PanelJuego");
+        pnlPrincipal.add(pnlJuego, "PanelJuego");
 
-        getContentPane().add(jPanelPrincipal);
+        getContentPane().add(pnlPrincipal);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     @Override
     public void paint(Graphics g) {
-        // Ajusta el tamaño del frame y el tablero
         this.setSize((this.width*20)+260, (this.height*20)+140);
         jPanelTablero.setMinimumSize(new Dimension((this.width*20), (this.height*20)));
         jPanelTablero.setPreferredSize(new Dimension((this.width*20), (this.height*20)));
         this.setLocationRelativeTo(null);
-        super.paint(g); //To change body of generated methods, choose Tools | Templates.
+        super.paint(g); 
     }
     
-    private void jButtonComenzarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonComenzarActionPerformed
-        // Añade el tablero
+    private void btnComenzarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComenzarActionPerformed
+
         crearTablero();
         repaint();
-        // Inicializa la serpiente
+
         this.serpiente = new Serpiente(this.width, this.height, this.velocidad);
-        // Inicia los contadores
-        jLabelManzanasC.setText("0");
-        jLabelPuntuacionC.setText("0");
-        jLabelTiempoC.setText("00:00");
-        // Muestra el panel de juego
-        cardLayout.show(jPanelPrincipal, "PanelJuego");
-        // Obtiene el foco para que funcione el keylistener
+ 
+        lblManzanasDato.setText("0");
+        lblPuntuacionDato.setText("0");
+        lblTiempoDato.setText("00:00");
+
+        cardLayout.show(pnlPrincipal, "PanelJuego");
         this.requestFocus();
-        // Inicia el juego
         serpiente.start();
-        // Listener para cuando la serpiente acabe mostrar el panel
+
         new Thread(new Runnable(){
             public void run(){
             try{serpiente.join();}
             catch(Exception e){;}
             finally{
                 dispose();
-                /* quitar dispose y descomentar si se quiere guardar de forma externa
-                para implementar de forma externa cambiar ruta de archivo en TablaDePuntuación
-                // Recupera la lista para mostrar
-                String[][] tabla = tablaDePuntuacion.recuperarLista();
-                jLabelPuntNombre1.setText(tabla[0][0]);
-                jLabelPuntPuntuacion1.setText(tabla[0][1]);
-                jLabelPuntNombre2.setText(tabla[1][0]);
-                jLabelPuntPuntuacion2.setText(tabla[1][1]);
-                jLabelPuntNombre3.setText(tabla[2][0]);
-                jLabelPuntPuntuacion3.setText(tabla[2][1]);
-                cardLayout.show(jPanelPrincipal, "PanelPuntuacion");
-                tabla = null;*/
             }}
         }).start();
-    }//GEN-LAST:event_jButtonComenzarActionPerformed
+    }//GEN-LAST:event_btnComenzarActionPerformed
 
-    private void jRadioButtonVelAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonVelAltaActionPerformed
-
-        this.velocidad = 100;
-    }//GEN-LAST:event_jRadioButtonVelAltaActionPerformed
-
-    private void jButtonInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonInfoActionPerformed
-        cardLayout.show(jPanelPrincipal, "PanelInfo");
-    }//GEN-LAST:event_jButtonInfoActionPerformed
-
-    private void jButtonVolverInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverInfoActionPerformed
-        cardLayout.show(jPanelPrincipal, "PanelInicio");
-    }//GEN-LAST:event_jButtonVolverInfoActionPerformed
-
-    private void jRadioButtonVelMediaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonVelMediaActionPerformed
-
-        this.velocidad = 200;
-    }//GEN-LAST:event_jRadioButtonVelMediaActionPerformed
-
-    private void jRadioButtonVelBajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonVelBajaActionPerformed
-
+    private void rbVelAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbVelAltaActionPerformed
         this.velocidad = 300;
-    }//GEN-LAST:event_jRadioButtonVelBajaActionPerformed
+    }//GEN-LAST:event_rbVelAltaActionPerformed
+
+    private void btnInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInfoActionPerformed
+        cardLayout.show(pnlPrincipal, "PanelInfo");
+    }//GEN-LAST:event_btnInfoActionPerformed
+
+    private void btnVolverInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverInfoActionPerformed
+        cardLayout.show(pnlPrincipal, "PanelInicio");
+    }//GEN-LAST:event_btnVolverInfoActionPerformed
+
+    private void rbVelMediaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbVelMediaActionPerformed
+        this.velocidad = 200;
+    }//GEN-LAST:event_rbVelMediaActionPerformed
+
+    private void rbVelBajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbVelBajaActionPerformed
+        this.velocidad = 300;
+    }//GEN-LAST:event_rbVelBajaActionPerformed
 
     @Override
     public void keyPressed(KeyEvent arg0) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         serpiente.setDireccion(arg0.getKeyCode());
     }
     
     @Override
     public void keyTyped(KeyEvent arg0) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void keyReleased(KeyEvent arg0) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     
@@ -644,42 +615,42 @@ public class FormMain extends javax.swing.JFrame implements KeyListener {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnComenzar;
+    private javax.swing.JButton btnInfo;
+    private javax.swing.JButton btnVolverInfo;
     private javax.swing.ButtonGroup buttonGroupDificultad;
     private javax.swing.ButtonGroup buttonGroupTamaño;
     private javax.swing.ButtonGroup buttonGroupVelocidad;
-    private javax.swing.JButton jButtonComenzar;
-    private javax.swing.JButton jButtonInfo;
-    private javax.swing.JButton jButtonVolverInfo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabelAjusVelocidad;
     private javax.swing.JLabel jLabelClockImgInfo;
     private javax.swing.JLabel jLabelInfo;
     private javax.swing.JLabel jLabelLogo;
     private javax.swing.JLabel jLabelManzanaInfo;
-    private javax.swing.JLabel jLabelManzanas;
-    protected static javax.swing.JLabel jLabelManzanasC;
-    private javax.swing.JLabel jLabelPuntuacion;
-    protected static javax.swing.JLabel jLabelPuntuacionC;
     private javax.swing.JLabel jLabelSerpienteInfo;
-    private javax.swing.JLabel jLabelTiempo;
-    protected static javax.swing.JLabel jLabelTiempoC;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanelEspaciadorUI;
     private javax.swing.JPanel jPanelEspaciadorUI1;
     private javax.swing.JPanel jPanelEspaciadorUI2;
     private javax.swing.JPanel jPanelEspaciadorUI3;
-    private javax.swing.JPanel jPanelInfo;
-    private javax.swing.JPanel jPanelInicio;
-    private javax.swing.JPanel jPanelJuego;
     private javax.swing.JPanel jPanelManzanInfo;
-    private javax.swing.JPanel jPanelPrincipal;
     private javax.swing.JPanel jPanelSerpienteInfo;
     private javax.swing.JPanel jPanelTablero;
-    private javax.swing.JRadioButton jRadioButtonVelAlta;
-    private javax.swing.JRadioButton jRadioButtonVelBaja;
-    private javax.swing.JRadioButton jRadioButtonVelMedia;
+    private javax.swing.JLabel lblAjusVelocidad;
+    private javax.swing.JLabel lblManzanas;
+    protected static javax.swing.JLabel lblManzanasDato;
+    private javax.swing.JLabel lblPuntuacion;
+    protected static javax.swing.JLabel lblPuntuacionDato;
+    private javax.swing.JLabel lblTiempo;
+    protected static javax.swing.JLabel lblTiempoDato;
+    private javax.swing.JPanel pnlInfo;
+    private javax.swing.JPanel pnlInicio;
+    private javax.swing.JPanel pnlJuego;
+    private javax.swing.JPanel pnlPrincipal;
+    private javax.swing.JRadioButton rbVelAlta;
+    private javax.swing.JRadioButton rbVelBaja;
+    private javax.swing.JRadioButton rbVelMedia;
     // End of variables declaration//GEN-END:variables
 }

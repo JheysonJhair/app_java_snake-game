@@ -38,7 +38,7 @@
 
   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBoxLayout"/>
   <SubComponents>
-    <Container class="javax.swing.JPanel" name="jPanelPrincipal">
+    <Container class="javax.swing.JPanel" name="pnlPrincipal">
       <Properties>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[600, 450]"/>
@@ -50,7 +50,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignCardLayout"/>
       <SubComponents>
-        <Container class="javax.swing.JPanel" name="jPanelInicio">
+        <Container class="javax.swing.JPanel" name="pnlInicio">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -83,7 +83,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabelAjusVelocidad">
+            <Component class="javax.swing.JLabel" name="lblAjusVelocidad">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="1"/>
@@ -96,7 +96,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JRadioButton" name="jRadioButtonVelBaja">
+            <Component class="javax.swing.JRadioButton" name="rbVelBaja">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -111,7 +111,7 @@
                 <Property name="text" type="java.lang.String" value="F&#xe1;cil"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonVelBajaActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rbVelBajaActionPerformed"/>
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -119,7 +119,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JRadioButton" name="jRadioButtonVelMedia">
+            <Component class="javax.swing.JRadioButton" name="rbVelMedia">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -130,7 +130,7 @@
                 <Property name="text" type="java.lang.String" value="Media"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonVelMediaActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rbVelMediaActionPerformed"/>
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -138,7 +138,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JRadioButton" name="jRadioButtonVelAlta">
+            <Component class="javax.swing.JRadioButton" name="rbVelAlta">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -149,7 +149,7 @@
                 <Property name="text" type="java.lang.String" value="Dif&#xed;cil"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonVelAltaActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rbVelAltaActionPerformed"/>
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -157,7 +157,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JButton" name="jButtonComenzar">
+            <Component class="javax.swing.JButton" name="btnComenzar">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="0" type="rgb"/>
@@ -177,7 +177,7 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonComenzarActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnComenzarActionPerformed"/>
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -185,7 +185,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JButton" name="jButtonInfo">
+            <Component class="javax.swing.JButton" name="btnInfo">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/recursos/img/info_snake.png"/>
@@ -201,7 +201,7 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonInfoActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnInfoActionPerformed"/>
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -317,11 +317,11 @@
               </Parameters>
             </CodeStatement>
             <CodeStatement>
-              <CodeExpression id="4_jPanelInicio">
-                <CodeVariable name="jPanelInicio" type="8194" declaredType="javax.swing.JPanel"/>
+              <CodeExpression id="4_pnlInicio">
+                <CodeVariable name="pnlInicio" type="8194" declaredType="javax.swing.JPanel"/>
                 <ExpressionOrigin>
                   <ExpressionProvider type="ComponentRef">
-                    <ComponentRef name="jPanelInicio"/>
+                    <ComponentRef name="pnlInicio"/>
                   </ExpressionProvider>
                 </ExpressionOrigin>
               </CodeExpression>
@@ -413,7 +413,7 @@
               </Parameters>
             </CodeStatement>
             <CodeStatement>
-              <CodeExpression id="4_jPanelInicio"/>
+              <CodeExpression id="4_pnlInicio"/>
               <StatementProvider type="CodeMethod">
                 <CodeMethod name="add" class="java.awt.Container" parameterTypes="java.awt.Component, java.lang.Object"/>
               </StatementProvider>
@@ -482,16 +482,16 @@
               </Parameters>
             </CodeStatement>
             <CodeStatement>
-              <CodeExpression id="4_jPanelInicio"/>
+              <CodeExpression id="4_pnlInicio"/>
               <StatementProvider type="CodeMethod">
                 <CodeMethod name="add" class="java.awt.Container" parameterTypes="java.awt.Component, java.lang.Object"/>
               </StatementProvider>
               <Parameters>
-                <CodeExpression id="16_jLabelAjusVelocidad">
-                  <CodeVariable name="jLabelAjusVelocidad" type="8194" declaredType="javax.swing.JLabel"/>
+                <CodeExpression id="16_lblAjusVelocidad">
+                  <CodeVariable name="lblAjusVelocidad" type="8194" declaredType="javax.swing.JLabel"/>
                   <ExpressionOrigin>
                     <ExpressionProvider type="ComponentRef">
-                      <ComponentRef name="jLabelAjusVelocidad"/>
+                      <ComponentRef name="lblAjusVelocidad"/>
                     </ExpressionProvider>
                   </ExpressionOrigin>
                 </CodeExpression>
@@ -551,16 +551,16 @@
               </Parameters>
             </CodeStatement>
             <CodeStatement>
-              <CodeExpression id="4_jPanelInicio"/>
+              <CodeExpression id="4_pnlInicio"/>
               <StatementProvider type="CodeMethod">
                 <CodeMethod name="add" class="java.awt.Container" parameterTypes="java.awt.Component, java.lang.Object"/>
               </StatementProvider>
               <Parameters>
-                <CodeExpression id="21_jRadioButtonVelBaja">
-                  <CodeVariable name="jRadioButtonVelBaja" type="8194" declaredType="javax.swing.JRadioButton"/>
+                <CodeExpression id="21_rbVelBaja">
+                  <CodeVariable name="rbVelBaja" type="8194" declaredType="javax.swing.JRadioButton"/>
                   <ExpressionOrigin>
                     <ExpressionProvider type="ComponentRef">
-                      <ComponentRef name="jRadioButtonVelBaja"/>
+                      <ComponentRef name="rbVelBaja"/>
                     </ExpressionProvider>
                   </ExpressionOrigin>
                 </CodeExpression>
@@ -620,16 +620,16 @@
               </Parameters>
             </CodeStatement>
             <CodeStatement>
-              <CodeExpression id="4_jPanelInicio"/>
+              <CodeExpression id="4_pnlInicio"/>
               <StatementProvider type="CodeMethod">
                 <CodeMethod name="add" class="java.awt.Container" parameterTypes="java.awt.Component, java.lang.Object"/>
               </StatementProvider>
               <Parameters>
-                <CodeExpression id="26_jRadioButtonVelMedia">
-                  <CodeVariable name="jRadioButtonVelMedia" type="8194" declaredType="javax.swing.JRadioButton"/>
+                <CodeExpression id="26_rbVelMedia">
+                  <CodeVariable name="rbVelMedia" type="8194" declaredType="javax.swing.JRadioButton"/>
                   <ExpressionOrigin>
                     <ExpressionProvider type="ComponentRef">
-                      <ComponentRef name="jRadioButtonVelMedia"/>
+                      <ComponentRef name="rbVelMedia"/>
                     </ExpressionProvider>
                   </ExpressionOrigin>
                 </CodeExpression>
@@ -689,16 +689,16 @@
               </Parameters>
             </CodeStatement>
             <CodeStatement>
-              <CodeExpression id="4_jPanelInicio"/>
+              <CodeExpression id="4_pnlInicio"/>
               <StatementProvider type="CodeMethod">
                 <CodeMethod name="add" class="java.awt.Container" parameterTypes="java.awt.Component, java.lang.Object"/>
               </StatementProvider>
               <Parameters>
-                <CodeExpression id="31_jRadioButtonVelAlta">
-                  <CodeVariable name="jRadioButtonVelAlta" type="8194" declaredType="javax.swing.JRadioButton"/>
+                <CodeExpression id="31_rbVelAlta">
+                  <CodeVariable name="rbVelAlta" type="8194" declaredType="javax.swing.JRadioButton"/>
                   <ExpressionOrigin>
                     <ExpressionProvider type="ComponentRef">
-                      <ComponentRef name="jRadioButtonVelAlta"/>
+                      <ComponentRef name="rbVelAlta"/>
                     </ExpressionProvider>
                   </ExpressionOrigin>
                 </CodeExpression>
@@ -810,16 +810,16 @@
               </Parameters>
             </CodeStatement>
             <CodeStatement>
-              <CodeExpression id="4_jPanelInicio"/>
+              <CodeExpression id="4_pnlInicio"/>
               <StatementProvider type="CodeMethod">
                 <CodeMethod name="add" class="java.awt.Container" parameterTypes="java.awt.Component, java.lang.Object"/>
               </StatementProvider>
               <Parameters>
-                <CodeExpression id="40_jButtonComenzar">
-                  <CodeVariable name="jButtonComenzar" type="8194" declaredType="javax.swing.JButton"/>
+                <CodeExpression id="40_btnComenzar">
+                  <CodeVariable name="btnComenzar" type="8194" declaredType="javax.swing.JButton"/>
                   <ExpressionOrigin>
                     <ExpressionProvider type="ComponentRef">
-                      <ComponentRef name="jButtonComenzar"/>
+                      <ComponentRef name="btnComenzar"/>
                     </ExpressionProvider>
                   </ExpressionOrigin>
                 </CodeExpression>
@@ -879,16 +879,16 @@
               </Parameters>
             </CodeStatement>
             <CodeStatement>
-              <CodeExpression id="4_jPanelInicio"/>
+              <CodeExpression id="4_pnlInicio"/>
               <StatementProvider type="CodeMethod">
                 <CodeMethod name="add" class="java.awt.Container" parameterTypes="java.awt.Component, java.lang.Object"/>
               </StatementProvider>
               <Parameters>
-                <CodeExpression id="45_jButtonInfo">
-                  <CodeVariable name="jButtonInfo" type="8194" declaredType="javax.swing.JButton"/>
+                <CodeExpression id="45_btnInfo">
+                  <CodeVariable name="btnInfo" type="8194" declaredType="javax.swing.JButton"/>
                   <ExpressionOrigin>
                     <ExpressionProvider type="ComponentRef">
-                      <ComponentRef name="jButtonInfo"/>
+                      <ComponentRef name="btnInfo"/>
                     </ExpressionProvider>
                   </ExpressionOrigin>
                 </CodeExpression>
@@ -948,7 +948,7 @@
               </Parameters>
             </CodeStatement>
             <CodeStatement>
-              <CodeExpression id="4_jPanelInicio"/>
+              <CodeExpression id="4_pnlInicio"/>
               <StatementProvider type="CodeMethod">
                 <CodeMethod name="add" class="java.awt.Container" parameterTypes="java.awt.Component, java.lang.Object"/>
               </StatementProvider>
@@ -966,7 +966,7 @@
             </CodeStatement>
           </LayoutCode>
         </Container>
-        <Container class="javax.swing.JPanel" name="jPanelInfo">
+        <Container class="javax.swing.JPanel" name="pnlInfo">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1085,7 +1085,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JButton" name="jButtonVolverInfo">
+            <Component class="javax.swing.JButton" name="btnVolverInfo">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="0" type="rgb"/>
@@ -1102,7 +1102,7 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonVolverInfoActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVolverInfoActionPerformed"/>
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -1168,11 +1168,11 @@
               </Parameters>
             </CodeStatement>
             <CodeStatement>
-              <CodeExpression id="54_jPanelInfo">
-                <CodeVariable name="jPanelInfo" type="8194" declaredType="javax.swing.JPanel"/>
+              <CodeExpression id="54_pnlInfo">
+                <CodeVariable name="pnlInfo" type="8194" declaredType="javax.swing.JPanel"/>
                 <ExpressionOrigin>
                   <ExpressionProvider type="ComponentRef">
-                    <ComponentRef name="jPanelInfo"/>
+                    <ComponentRef name="pnlInfo"/>
                   </ExpressionProvider>
                 </ExpressionOrigin>
               </CodeExpression>
@@ -1249,7 +1249,7 @@
               </Parameters>
             </CodeStatement>
             <CodeStatement>
-              <CodeExpression id="54_jPanelInfo"/>
+              <CodeExpression id="54_pnlInfo"/>
               <StatementProvider type="CodeMethod">
                 <CodeMethod name="add" class="java.awt.Container" parameterTypes="java.awt.Component, java.lang.Object"/>
               </StatementProvider>
@@ -1318,7 +1318,7 @@
               </Parameters>
             </CodeStatement>
             <CodeStatement>
-              <CodeExpression id="54_jPanelInfo"/>
+              <CodeExpression id="54_pnlInfo"/>
               <StatementProvider type="CodeMethod">
                 <CodeMethod name="add" class="java.awt.Container" parameterTypes="java.awt.Component, java.lang.Object"/>
               </StatementProvider>
@@ -1387,7 +1387,7 @@
               </Parameters>
             </CodeStatement>
             <CodeStatement>
-              <CodeExpression id="54_jPanelInfo"/>
+              <CodeExpression id="54_pnlInfo"/>
               <StatementProvider type="CodeMethod">
                 <CodeMethod name="add" class="java.awt.Container" parameterTypes="java.awt.Component, java.lang.Object"/>
               </StatementProvider>
@@ -1456,7 +1456,7 @@
               </Parameters>
             </CodeStatement>
             <CodeStatement>
-              <CodeExpression id="54_jPanelInfo"/>
+              <CodeExpression id="54_pnlInfo"/>
               <StatementProvider type="CodeMethod">
                 <CodeMethod name="add" class="java.awt.Container" parameterTypes="java.awt.Component, java.lang.Object"/>
               </StatementProvider>
@@ -1525,7 +1525,7 @@
               </Parameters>
             </CodeStatement>
             <CodeStatement>
-              <CodeExpression id="54_jPanelInfo"/>
+              <CodeExpression id="54_pnlInfo"/>
               <StatementProvider type="CodeMethod">
                 <CodeMethod name="add" class="java.awt.Container" parameterTypes="java.awt.Component, java.lang.Object"/>
               </StatementProvider>
@@ -1594,7 +1594,7 @@
               </Parameters>
             </CodeStatement>
             <CodeStatement>
-              <CodeExpression id="54_jPanelInfo"/>
+              <CodeExpression id="54_pnlInfo"/>
               <StatementProvider type="CodeMethod">
                 <CodeMethod name="add" class="java.awt.Container" parameterTypes="java.awt.Component, java.lang.Object"/>
               </StatementProvider>
@@ -1663,16 +1663,16 @@
               </Parameters>
             </CodeStatement>
             <CodeStatement>
-              <CodeExpression id="54_jPanelInfo"/>
+              <CodeExpression id="54_pnlInfo"/>
               <StatementProvider type="CodeMethod">
                 <CodeMethod name="add" class="java.awt.Container" parameterTypes="java.awt.Component, java.lang.Object"/>
               </StatementProvider>
               <Parameters>
-                <CodeExpression id="90_jButtonVolverInfo">
-                  <CodeVariable name="jButtonVolverInfo" type="8194" declaredType="javax.swing.JButton"/>
+                <CodeExpression id="90_btnVolverInfo">
+                  <CodeVariable name="btnVolverInfo" type="8194" declaredType="javax.swing.JButton"/>
                   <ExpressionOrigin>
                     <ExpressionProvider type="ComponentRef">
-                      <ComponentRef name="jButtonVolverInfo"/>
+                      <ComponentRef name="btnVolverInfo"/>
                     </ExpressionProvider>
                   </ExpressionOrigin>
                 </CodeExpression>
@@ -1732,7 +1732,7 @@
               </Parameters>
             </CodeStatement>
             <CodeStatement>
-              <CodeExpression id="54_jPanelInfo"/>
+              <CodeExpression id="54_pnlInfo"/>
               <StatementProvider type="CodeMethod">
                 <CodeMethod name="add" class="java.awt.Container" parameterTypes="java.awt.Component, java.lang.Object"/>
               </StatementProvider>
@@ -1750,7 +1750,7 @@
             </CodeStatement>
           </LayoutCode>
         </Container>
-        <Container class="javax.swing.JPanel" name="jPanelJuego">
+        <Container class="javax.swing.JPanel" name="pnlJuego">
           <Properties>
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[600, 450]"/>
@@ -1816,7 +1816,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabelTiempo">
+            <Component class="javax.swing.JLabel" name="lblTiempo">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="24" style="1"/>
@@ -1829,7 +1829,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabelTiempoC">
+            <Component class="javax.swing.JLabel" name="lblTiempoDato">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="24" style="0"/>
@@ -1845,7 +1845,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabelManzanas">
+            <Component class="javax.swing.JLabel" name="lblManzanas">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="24" style="1"/>
@@ -1858,7 +1858,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabelManzanasC">
+            <Component class="javax.swing.JLabel" name="lblManzanasDato">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="24" style="0"/>
@@ -1874,7 +1874,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabelPuntuacion">
+            <Component class="javax.swing.JLabel" name="lblPuntuacion">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="24" style="1"/>
@@ -1890,7 +1890,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabelPuntuacionC">
+            <Component class="javax.swing.JLabel" name="lblPuntuacionDato">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="24" style="0"/>

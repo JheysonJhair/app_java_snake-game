@@ -24,7 +24,7 @@
     <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,1,44,0,0,1,-112"/>
   </AuxValues>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="jLabelPuntuacion">
+    <Component class="javax.swing.JLabel" name="lblPuntuacion">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial Black" size="18" style="1"/>
@@ -37,7 +37,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabelPuntuacionC">
+    <Component class="javax.swing.JLabel" name="lblPuntuacionDato">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial Rounded MT Bold" size="14" style="0"/>
@@ -50,7 +50,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabelManzanas">
+    <Component class="javax.swing.JLabel" name="lblManzanas">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial Black" size="18" style="1"/>
@@ -63,7 +63,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabelManzanasC">
+    <Component class="javax.swing.JLabel" name="lblManzanasDato">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial Rounded MT Bold" size="14" style="0"/>
@@ -76,7 +76,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabelTiempo">
+    <Component class="javax.swing.JLabel" name="lblTiempo">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial Black" size="18" style="1"/>
@@ -89,7 +89,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabelTiempoC">
+    <Component class="javax.swing.JLabel" name="lblTiempoDato">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial Rounded MT Bold" size="14" style="0"/>
@@ -102,7 +102,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JButton" name="jButtonSalir">
+    <Component class="javax.swing.JButton" name="btnSalir">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="0" green="0" red="0" type="rgb"/>
@@ -119,7 +119,7 @@
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonSalirActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSalirActionPerformed"/>
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -390,11 +390,11 @@
         <CodeMethod name="add" class="java.awt.Container" parameterTypes="java.awt.Component, java.lang.Object"/>
       </StatementProvider>
       <Parameters>
-        <CodeExpression id="11_jLabelPuntuacion">
-          <CodeVariable name="jLabelPuntuacion" type="8194" declaredType="javax.swing.JLabel"/>
+        <CodeExpression id="11_lblPuntuacion">
+          <CodeVariable name="lblPuntuacion" type="8194" declaredType="javax.swing.JLabel"/>
           <ExpressionOrigin>
             <ExpressionProvider type="ComponentRef">
-              <ComponentRef name="jLabelPuntuacion"/>
+              <ComponentRef name="lblPuntuacion"/>
             </ExpressionProvider>
           </ExpressionOrigin>
         </CodeExpression>
@@ -474,11 +474,11 @@
         <CodeMethod name="add" class="java.awt.Container" parameterTypes="java.awt.Component, java.lang.Object"/>
       </StatementProvider>
       <Parameters>
-        <CodeExpression id="17_jLabelPuntuacionC">
-          <CodeVariable name="jLabelPuntuacionC" type="8194" declaredType="javax.swing.JLabel"/>
+        <CodeExpression id="17_lblPuntuacionDato">
+          <CodeVariable name="lblPuntuacionDato" type="8194" declaredType="javax.swing.JLabel"/>
           <ExpressionOrigin>
             <ExpressionProvider type="ComponentRef">
-              <ComponentRef name="jLabelPuntuacionC"/>
+              <ComponentRef name="lblPuntuacionDato"/>
             </ExpressionProvider>
           </ExpressionOrigin>
         </CodeExpression>
@@ -558,11 +558,11 @@
         <CodeMethod name="add" class="java.awt.Container" parameterTypes="java.awt.Component, java.lang.Object"/>
       </StatementProvider>
       <Parameters>
-        <CodeExpression id="23_jLabelManzanas">
-          <CodeVariable name="jLabelManzanas" type="8194" declaredType="javax.swing.JLabel"/>
+        <CodeExpression id="23_lblManzanas">
+          <CodeVariable name="lblManzanas" type="8194" declaredType="javax.swing.JLabel"/>
           <ExpressionOrigin>
             <ExpressionProvider type="ComponentRef">
-              <ComponentRef name="jLabelManzanas"/>
+              <ComponentRef name="lblManzanas"/>
             </ExpressionProvider>
           </ExpressionOrigin>
         </CodeExpression>
@@ -642,11 +642,11 @@
         <CodeMethod name="add" class="java.awt.Container" parameterTypes="java.awt.Component, java.lang.Object"/>
       </StatementProvider>
       <Parameters>
-        <CodeExpression id="29_jLabelManzanasC">
-          <CodeVariable name="jLabelManzanasC" type="8194" declaredType="javax.swing.JLabel"/>
+        <CodeExpression id="29_lblManzanasDato">
+          <CodeVariable name="lblManzanasDato" type="8194" declaredType="javax.swing.JLabel"/>
           <ExpressionOrigin>
             <ExpressionProvider type="ComponentRef">
-              <ComponentRef name="jLabelManzanasC"/>
+              <ComponentRef name="lblManzanasDato"/>
             </ExpressionProvider>
           </ExpressionOrigin>
         </CodeExpression>
@@ -726,11 +726,11 @@
         <CodeMethod name="add" class="java.awt.Container" parameterTypes="java.awt.Component, java.lang.Object"/>
       </StatementProvider>
       <Parameters>
-        <CodeExpression id="35_jLabelTiempo">
-          <CodeVariable name="jLabelTiempo" type="8194" declaredType="javax.swing.JLabel"/>
+        <CodeExpression id="35_lblTiempo">
+          <CodeVariable name="lblTiempo" type="8194" declaredType="javax.swing.JLabel"/>
           <ExpressionOrigin>
             <ExpressionProvider type="ComponentRef">
-              <ComponentRef name="jLabelTiempo"/>
+              <ComponentRef name="lblTiempo"/>
             </ExpressionProvider>
           </ExpressionOrigin>
         </CodeExpression>
@@ -810,11 +810,11 @@
         <CodeMethod name="add" class="java.awt.Container" parameterTypes="java.awt.Component, java.lang.Object"/>
       </StatementProvider>
       <Parameters>
-        <CodeExpression id="41_jLabelTiempoC">
-          <CodeVariable name="jLabelTiempoC" type="8194" declaredType="javax.swing.JLabel"/>
+        <CodeExpression id="41_lblTiempoDato">
+          <CodeVariable name="lblTiempoDato" type="8194" declaredType="javax.swing.JLabel"/>
           <ExpressionOrigin>
             <ExpressionProvider type="ComponentRef">
-              <ComponentRef name="jLabelTiempoC"/>
+              <ComponentRef name="lblTiempoDato"/>
             </ExpressionProvider>
           </ExpressionOrigin>
         </CodeExpression>
@@ -894,11 +894,11 @@
         <CodeMethod name="add" class="java.awt.Container" parameterTypes="java.awt.Component, java.lang.Object"/>
       </StatementProvider>
       <Parameters>
-        <CodeExpression id="47_jButtonSalir">
-          <CodeVariable name="jButtonSalir" type="8194" declaredType="javax.swing.JButton"/>
+        <CodeExpression id="47_btnSalir">
+          <CodeVariable name="btnSalir" type="8194" declaredType="javax.swing.JButton"/>
           <ExpressionOrigin>
             <ExpressionProvider type="ComponentRef">
-              <ComponentRef name="jButtonSalir"/>
+              <ComponentRef name="btnSalir"/>
             </ExpressionProvider>
           </ExpressionOrigin>
         </CodeExpression>

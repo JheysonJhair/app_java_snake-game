@@ -1,13 +1,18 @@
 package com.jhairdev.ui_threads;
 
 import java.awt.Color;
-import java.awt.event.KeyEvent;
+import java.awt.MouseInfo;
+import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *
+ * @author Jhair 
+ */
 public class Serpiente extends Thread {
     private boolean estaViva;
-    
+
     private GeneradorDeManzanas generadorDeManzanas;
     private Cronometro cronometro;
 
@@ -16,9 +21,11 @@ public class Serpiente extends Thread {
 
     private final int width;
     private final int height;
-    
+
     private double velocidad;
     private DialogPuntuacion dialogPuntuacion;
+
+    private double anguloMovimiento; 
 
     public Serpiente(int width, int height, int velocidad) {
         this.width = width;
@@ -36,33 +43,18 @@ public class Serpiente extends Thread {
                 this.cola = this.cuerpo.get(ultimoSegmento()).clone();
                 // Mueve el cuerpo
                 for (int i = ultimoSegmento(); i >= 0; i--) {
-                    switch (this.cuerpo.get(i)[2]) {
-                        case KeyEvent.VK_A: 
-                        case KeyEvent.VK_LEFT:
-                            this.cuerpo.get(i)[0]--;
-                            break;
-                        case KeyEvent.VK_D: 
-                        case KeyEvent.VK_RIGHT:
-                            this.cuerpo.get(i)[0]++;
-                            break;
-                        case KeyEvent.VK_W: 
-                        case KeyEvent.VK_UP:
-                            this.cuerpo.get(i)[1]--;
-                            break;
-                        case KeyEvent.VK_S: 
-                        case KeyEvent.VK_DOWN:
-                            this.cuerpo.get(i)[1]++;
-                            break;
-                    }
-                    if (i > 0) {
-                        this.cuerpo.get(i)[2] = this.cuerpo.get(i - 1)[2];
+                    int[] segmento = this.cuerpo.get(i);
+                    if (i == 0) { 
+                        segmento[0] += (int) Math.round(Math.cos(anguloMovimiento));
+                        segmento[1] += (int) Math.round(Math.sin(anguloMovimiento));
+                    } else {
+                        this.cuerpo.get(i)[0] = this.cuerpo.get(i - 1)[0];
+                        this.cuerpo.get(i)[1] = this.cuerpo.get(i - 1)[1];
                     }
                 }
-               
+
                 if (FormMain.tablero[this.cuerpo.get(0)[0]][this.cuerpo.get(0)[1]].getBackground() == Color.RED) {
                     añadirCuerpo();
-                } else if (FormMain.tablero[this.cuerpo.get(0)[0]][this.cuerpo.get(0)[1]].getBackground() == Color.BLUE) {
-                    FormMain.tablero[this.cola[0]][this.cola[1]].setBackground(Color.WHITE);
                 } else {
                     FormMain.tablero[this.cola[0]][this.cola[1]].setBackground(Color.WHITE);
                 }
@@ -83,8 +75,8 @@ public class Serpiente extends Thread {
         return this.cuerpo.size() - 1;
     }
 
-    public void setDireccion(int direccion) {
-        this.cuerpo.get(0)[2] = direccion;
+    public void setAnguloMovimiento(double angulo) {
+        this.anguloMovimiento = angulo;
     }
 
     private void añadirCuerpo() {
@@ -106,11 +98,14 @@ public class Serpiente extends Thread {
         this.estaViva = true;
         this.cuerpo = new ArrayList<>();
         FormMain.tablero[this.width / 2][this.height / 2].setBackground(Color.BLACK);
-        this.cuerpo.add(new int[]{this.width / 2, this.height / 2, KeyEvent.VK_W});  
+        this.cuerpo.add(new int[] { this.width / 2, this.height / 2, 0 });
         this.cola = this.cuerpo.get(ultimoSegmento()).clone();
         generadorDeManzanas = new GeneradorDeManzanas(this.width, this.height);
         cronometro = new Cronometro();
         dialogPuntuacion = new DialogPuntuacion(FormMain.getFrames()[0], true);
     }
 
+    public List<int[]> getCuerpo() {
+        return cuerpo;
+    }
 }

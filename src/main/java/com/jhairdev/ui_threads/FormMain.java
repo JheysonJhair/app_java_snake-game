@@ -5,14 +5,15 @@ import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionListener;
 
 /**
  *
  * @author Jhair
  */
-public class FormMain extends javax.swing.JFrame implements KeyListener {
+public class FormMain extends javax.swing.JFrame implements MouseMotionListener {
+
     private CardLayout cardLayout = new CardLayout();
     protected static Panel[][] tablero;
 
@@ -29,7 +30,7 @@ public class FormMain extends javax.swing.JFrame implements KeyListener {
         this.width = 70;
         this.height = 34;
         this.velocidad = 300;
-        addKeyListener(this);
+        addMouseMotionListener(this); // Agrega el MouseMotionListener
         cardLayout = (CardLayout)pnlPrincipal.getLayout();
         cardLayout.show(pnlPrincipal, "PanelInicio");
         tablaDePuntuacion = new TablaDePuntuacion();
@@ -87,9 +88,12 @@ public class FormMain extends javax.swing.JFrame implements KeyListener {
         lblManzanasDato = new javax.swing.JLabel();
         lblPuntuacion = new javax.swing.JLabel();
         lblPuntuacionDato = new javax.swing.JLabel();
+        lblMuertes = new javax.swing.JLabel();
+        lblMuertesDato = new javax.swing.JLabel();
         jPanelEspaciadorUI = new javax.swing.JPanel();
         jPanelEspaciadorUI1 = new javax.swing.JPanel();
         jPanelEspaciadorUI2 = new javax.swing.JPanel();
+        jPanelEspaciadorUI4 = new javax.swing.JPanel();
         jPanelEspaciadorUI3 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -315,7 +319,7 @@ public class FormMain extends javax.swing.JFrame implements KeyListener {
         pnlInfo.add(jPanelManzanInfo, gridBagConstraints);
 
         jLabelManzanaInfo.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
-        jLabelManzanaInfo.setText("Las manzanas te dan 100 puntos pero tambien la serpiente crece mas grande");
+        jLabelManzanaInfo.setText("Las manzanas te dan 100 puntos pero tambien la serpiente crece mas grande.\n");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 4;
@@ -378,7 +382,7 @@ public class FormMain extends javax.swing.JFrame implements KeyListener {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 12;
+        gridBagConstraints.gridwidth = 15;
         gridBagConstraints.gridheight = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         pnlJuego.add(jPanelTablero, gridBagConstraints);
@@ -426,11 +430,25 @@ public class FormMain extends javax.swing.JFrame implements KeyListener {
         lblPuntuacionDato.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         lblPuntuacionDato.setText("0");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 11;
+        gridBagConstraints.gridx = 10;
         gridBagConstraints.gridy = 0;
         pnlJuego.add(lblPuntuacionDato, gridBagConstraints);
 
-        jPanelEspaciadorUI.setPreferredSize(new java.awt.Dimension(130, 10));
+        lblMuertes.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        lblMuertes.setText("     Muertes:    ");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 12;
+        gridBagConstraints.gridy = 0;
+        pnlJuego.add(lblMuertes, gridBagConstraints);
+
+        lblMuertesDato.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        lblMuertesDato.setText("0");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 13;
+        gridBagConstraints.gridy = 0;
+        pnlJuego.add(lblMuertesDato, gridBagConstraints);
+
+        jPanelEspaciadorUI.setPreferredSize(new java.awt.Dimension(90, 10));
 
         javax.swing.GroupLayout jPanelEspaciadorUILayout = new javax.swing.GroupLayout(jPanelEspaciadorUI);
         jPanelEspaciadorUI.setLayout(jPanelEspaciadorUILayout);
@@ -448,7 +466,7 @@ public class FormMain extends javax.swing.JFrame implements KeyListener {
         gridBagConstraints.gridy = 0;
         pnlJuego.add(jPanelEspaciadorUI, gridBagConstraints);
 
-        jPanelEspaciadorUI1.setPreferredSize(new java.awt.Dimension(150, 10));
+        jPanelEspaciadorUI1.setPreferredSize(new java.awt.Dimension(90, 10));
 
         javax.swing.GroupLayout jPanelEspaciadorUI1Layout = new javax.swing.GroupLayout(jPanelEspaciadorUI1);
         jPanelEspaciadorUI1.setLayout(jPanelEspaciadorUI1Layout);
@@ -466,7 +484,7 @@ public class FormMain extends javax.swing.JFrame implements KeyListener {
         gridBagConstraints.gridy = 0;
         pnlJuego.add(jPanelEspaciadorUI1, gridBagConstraints);
 
-        jPanelEspaciadorUI2.setPreferredSize(new java.awt.Dimension(150, 10));
+        jPanelEspaciadorUI2.setPreferredSize(new java.awt.Dimension(90, 10));
 
         javax.swing.GroupLayout jPanelEspaciadorUI2Layout = new javax.swing.GroupLayout(jPanelEspaciadorUI2);
         jPanelEspaciadorUI2.setLayout(jPanelEspaciadorUI2Layout);
@@ -484,7 +502,25 @@ public class FormMain extends javax.swing.JFrame implements KeyListener {
         gridBagConstraints.gridy = 0;
         pnlJuego.add(jPanelEspaciadorUI2, gridBagConstraints);
 
-        jPanelEspaciadorUI3.setPreferredSize(new java.awt.Dimension(130, 10));
+        jPanelEspaciadorUI4.setPreferredSize(new java.awt.Dimension(90, 10));
+
+        javax.swing.GroupLayout jPanelEspaciadorUI4Layout = new javax.swing.GroupLayout(jPanelEspaciadorUI4);
+        jPanelEspaciadorUI4.setLayout(jPanelEspaciadorUI4Layout);
+        jPanelEspaciadorUI4Layout.setHorizontalGroup(
+            jPanelEspaciadorUI4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanelEspaciadorUI4Layout.setVerticalGroup(
+            jPanelEspaciadorUI4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 11;
+        gridBagConstraints.gridy = 0;
+        pnlJuego.add(jPanelEspaciadorUI4, gridBagConstraints);
+
+        jPanelEspaciadorUI3.setPreferredSize(new java.awt.Dimension(90, 10));
 
         javax.swing.GroupLayout jPanelEspaciadorUI3Layout = new javax.swing.GroupLayout(jPanelEspaciadorUI3);
         jPanelEspaciadorUI3.setLayout(jPanelEspaciadorUI3Layout);
@@ -544,7 +580,7 @@ public class FormMain extends javax.swing.JFrame implements KeyListener {
     }//GEN-LAST:event_btnComenzarActionPerformed
 
     private void rbVelAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbVelAltaActionPerformed
-        this.velocidad = 300;
+        this.velocidad = 100;
     }//GEN-LAST:event_rbVelAltaActionPerformed
 
     private void btnInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInfoActionPerformed
@@ -564,19 +600,18 @@ public class FormMain extends javax.swing.JFrame implements KeyListener {
     }//GEN-LAST:event_rbVelBajaActionPerformed
 
     @Override
-    public void keyPressed(KeyEvent arg0) {
-        serpiente.setDireccion(arg0.getKeyCode());
-    }
-    
-    @Override
-    public void keyTyped(KeyEvent arg0) {
+    public void mouseMoved(MouseEvent e) {
+        int mouseX = e.getX() / 20;
+        int mouseY = e.getY() / 20;
+        int[] cabeza = serpiente.getCuerpo().get(0);
+        double angulo = Math.atan2(mouseY - cabeza[1], mouseX - cabeza[0]);
+        serpiente.setAnguloMovimiento(angulo);
     }
 
     @Override
-    public void keyReleased(KeyEvent arg0) {
+    public void mouseDragged(MouseEvent e) {
+        mouseMoved(e);
     }
-    
-    
     /**
      * @param args the command line arguments
      */
@@ -635,12 +670,15 @@ public class FormMain extends javax.swing.JFrame implements KeyListener {
     private javax.swing.JPanel jPanelEspaciadorUI1;
     private javax.swing.JPanel jPanelEspaciadorUI2;
     private javax.swing.JPanel jPanelEspaciadorUI3;
+    private javax.swing.JPanel jPanelEspaciadorUI4;
     private javax.swing.JPanel jPanelManzanInfo;
     private javax.swing.JPanel jPanelSerpienteInfo;
     private javax.swing.JPanel jPanelTablero;
     private javax.swing.JLabel lblAjusVelocidad;
     private javax.swing.JLabel lblManzanas;
     protected static javax.swing.JLabel lblManzanasDato;
+    private javax.swing.JLabel lblMuertes;
+    protected static javax.swing.JLabel lblMuertesDato;
     private javax.swing.JLabel lblPuntuacion;
     protected static javax.swing.JLabel lblPuntuacionDato;
     private javax.swing.JLabel lblTiempo;

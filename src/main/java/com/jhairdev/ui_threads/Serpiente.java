@@ -3,8 +3,10 @@ package com.jhairdev.ui_threads;
 import java.awt.Color;
 import java.awt.MouseInfo;
 import java.awt.Point;
+import java.awt.Rectangle;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -40,8 +42,21 @@ public class Serpiente extends Thread {
             cronometro.start();
             generadorDeManzanas.start();
             while (estaViva) {
+                // Obtener la posición del cursor en el contexto del componente de juego
+                Point mousePos = MouseInfo.getPointerInfo().getLocation();
+                SwingUtilities.convertPointFromScreen(mousePos, FormMain.tablero[0][0].getParent());
+                
+                Rectangle bounds = FormMain.tablero[0][0].getBounds();
+                int mouseX = mousePos.x / bounds.width;
+                int mouseY = mousePos.y / bounds.height;
+
+                int x = this.cuerpo.get(0)[0];
+                int y = this.cuerpo.get(0)[1];
+                double angulo = Math.atan2(mouseY - y, mouseX - x);
+                setAnguloMovimiento(angulo);
+
                 this.cola = this.cuerpo.get(ultimoSegmento()).clone();
-                // Mueve el cuerpo
+     
                 for (int i = ultimoSegmento(); i >= 0; i--) {
                     int[] segmento = this.cuerpo.get(i);
                     if (i == 0) { 

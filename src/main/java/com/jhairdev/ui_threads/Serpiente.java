@@ -14,19 +14,14 @@ import javax.swing.SwingUtilities;
  */
 public class Serpiente extends Thread {
     private boolean estaViva;
-
     private GeneradorDeManzanas generadorDeManzanas;
     private Cronometro cronometro;
-
     private List<int[]> cuerpo;
     private int[] cola;
-
     private final int width;
     private final int height;
-
     private double velocidad;
     private DialogPuntuacion dialogPuntuacion;
-
     private double anguloMovimiento; 
 
     public Serpiente(int width, int height, int velocidad) {
@@ -42,10 +37,10 @@ public class Serpiente extends Thread {
             cronometro.start();
             generadorDeManzanas.start();
             while (estaViva) {
-                // Obtener la posición del cursor en el contexto del componente de juego
+                
                 Point mousePos = MouseInfo.getPointerInfo().getLocation();
                 SwingUtilities.convertPointFromScreen(mousePos, FormMain.tablero[0][0].getParent());
-                
+
                 Rectangle bounds = FormMain.tablero[0][0].getBounds();
                 int mouseX = mousePos.x / bounds.width;
                 int mouseY = mousePos.y / bounds.height;
@@ -56,10 +51,10 @@ public class Serpiente extends Thread {
                 setAnguloMovimiento(angulo);
 
                 this.cola = this.cuerpo.get(ultimoSegmento()).clone();
-     
+
                 for (int i = ultimoSegmento(); i >= 0; i--) {
                     int[] segmento = this.cuerpo.get(i);
-                    if (i == 0) { 
+                    if (i == 0) {
                         segmento[0] += (int) Math.round(Math.cos(anguloMovimiento));
                         segmento[1] += (int) Math.round(Math.sin(anguloMovimiento));
                     } else {
@@ -82,7 +77,7 @@ public class Serpiente extends Thread {
             }
         } catch (IndexOutOfBoundsException e) {
         } finally {
-            morir();
+            reiniciar();
         }
     }
 
@@ -100,24 +95,36 @@ public class Serpiente extends Thread {
         System.out.println("Serpiente: Manzana devorada");
     }
 
-    private void morir() {
+    private void reiniciar() {
         cronometro.pararCronometro();
         generadorDeManzanas.pararDeGenerar();
-        System.out.println("Serpiente: La serpiente ha muerto");
-        dialogPuntuacion.iniciar();
-        dialogPuntuacion.setVisible(true);
-        this.estaViva = false;
+        if (estaViva) {
+            FormMain.contadorMuertes++;
+            FormMain.lblMuertesDato.setText(String.valueOf(FormMain.contadorMuertes));
+            System.out.println("Serpiente muerta. Contador de muertes: " + FormMain.contadorMuertes);
+        }
+
+        limpiarTablero();
+        init();
+        estaViva = true;
+        run();
+    }
+
+    private void limpiarTablero() {
+        for (int i = 0; i < FormMain.tablero.length; i++) {
+            for (int j = 0; j < FormMain.tablero[i].length; j++) {
+                FormMain.tablero[i][j].setBackground(Color.WHITE);
+            }
+        }
     }
 
     private void init() {
-        this.estaViva = true;
         this.cuerpo = new ArrayList<>();
         FormMain.tablero[this.width / 2][this.height / 2].setBackground(Color.BLACK);
         this.cuerpo.add(new int[] { this.width / 2, this.height / 2, 0 });
         this.cola = this.cuerpo.get(ultimoSegmento()).clone();
         generadorDeManzanas = new GeneradorDeManzanas(this.width, this.height);
         cronometro = new Cronometro();
-        dialogPuntuacion = new DialogPuntuacion(FormMain.getFrames()[0], true);
     }
 
     public List<int[]> getCuerpo() {

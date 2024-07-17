@@ -16,7 +16,8 @@ public class FormMain extends javax.swing.JFrame implements MouseMotionListener 
 
     private CardLayout cardLayout = new CardLayout();
     protected static Panel[][] tablero;
-
+    protected static int contadorMuertes = 0;
+ 
     private Serpiente serpiente;
     private TablaDePuntuacion tablaDePuntuacion;
 
@@ -30,7 +31,7 @@ public class FormMain extends javax.swing.JFrame implements MouseMotionListener 
         this.width = 70;
         this.height = 34;
         this.velocidad = 300;
-        addMouseMotionListener(this); // Agrega el MouseMotionListener
+        addMouseMotionListener(this); 
         cardLayout = (CardLayout)pnlPrincipal.getLayout();
         cardLayout.show(pnlPrincipal, "PanelInicio");
         tablaDePuntuacion = new TablaDePuntuacion();
@@ -564,6 +565,7 @@ public class FormMain extends javax.swing.JFrame implements MouseMotionListener 
         lblManzanasDato.setText("0");
         lblPuntuacionDato.setText("0");
         lblTiempoDato.setText("00:00");
+        lblMuertesDato.setText(String.valueOf(contadorMuertes));
 
         cardLayout.show(pnlPrincipal, "PanelJuego");
         this.requestFocus();

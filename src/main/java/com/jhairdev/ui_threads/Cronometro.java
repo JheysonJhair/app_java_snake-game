@@ -1,4 +1,5 @@
 package com.jhairdev.ui_threads;
+
 /**
  *
  * @author Jhair
@@ -22,13 +23,11 @@ public class Cronometro extends Thread {
             if (segundos >= 60) {
                 segundos = 0;
                 minutos++;
-            } else if (minutos >= 60) {
-                pararCronometro();
             }
             try {
                 Thread.sleep(1000);
                 if (!parar) {
-                    FormMain.lblTiempoDato.setText(String.format("%2d", minutos).replace(' ', '0') + ":" + String.format("%2d", segundos).replace(' ', '0'));
+                    FormMain.lblTiempoDato.setText(String.format("%02d", minutos) + ":" + String.format("%02d", segundos));
                 }
             } catch (InterruptedException ex) {
                 System.out.println("Hilo Cronometro: Se detuvo");
@@ -38,5 +37,9 @@ public class Cronometro extends Thread {
 
     public void pararCronometro() {
         this.parar = true;
+    }
+
+    public void continuarCronometro() {
+        this.parar = false;
     }
 }

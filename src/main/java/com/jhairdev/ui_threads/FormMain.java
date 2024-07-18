@@ -16,11 +16,13 @@ public class FormMain extends javax.swing.JFrame implements MouseMotionListener 
 
     private CardLayout cardLayout = new CardLayout();
     protected static Panel[][] tablero;
+    
     protected static int contadorMuertes = 0;
- 
+    private GeneradorDeManzanas generadorDeManzanas;
+    private Cronometro cronometro;
     private Serpiente serpiente;
     private TablaDePuntuacion tablaDePuntuacion;
-
+    private DialogPuntuacion dialogPuntuacion;
     private int width;
     private int height;
     private int velocidad;
@@ -72,6 +74,9 @@ public class FormMain extends javax.swing.JFrame implements MouseMotionListener 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         pnlInfo = new javax.swing.JPanel();
+        lbl1 = new javax.swing.JLabel();
+        lbl2 = new javax.swing.JLabel();
+        lbl3 = new javax.swing.JLabel();
         jLabelInfo = new javax.swing.JLabel();
         jPanelSerpienteInfo = new javax.swing.JPanel();
         jLabelSerpienteInfo = new javax.swing.JLabel();
@@ -91,7 +96,9 @@ public class FormMain extends javax.swing.JFrame implements MouseMotionListener 
         lblPuntuacionDato = new javax.swing.JLabel();
         lblMuertes = new javax.swing.JLabel();
         lblMuertesDato = new javax.swing.JLabel();
+        btnDetenerJuego = new javax.swing.JButton();
         jPanelEspaciadorUI = new javax.swing.JPanel();
+        jPanelEspaciadorUI5 = new javax.swing.JPanel();
         jPanelEspaciadorUI1 = new javax.swing.JPanel();
         jPanelEspaciadorUI2 = new javax.swing.JPanel();
         jPanelEspaciadorUI4 = new javax.swing.JPanel();
@@ -259,8 +266,35 @@ public class FormMain extends javax.swing.JFrame implements MouseMotionListener 
         pnlInfo.setBackground(new java.awt.Color(255, 255, 255));
         java.awt.GridBagLayout jPanelInfoLayout = new java.awt.GridBagLayout();
         jPanelInfoLayout.columnWidths = new int[] {0, 10, 0, 10, 0, 10, 0};
-        jPanelInfoLayout.rowHeights = new int[] {0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0};
+        jPanelInfoLayout.rowHeights = new int[] {0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0};
         pnlInfo.setLayout(jPanelInfoLayout);
+
+        lbl1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
+        lbl1.setText("Al presionar el botón \"DETENER\", podrás verificar tus puntos acumulados.");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        pnlInfo.add(lbl1, gridBagConstraints);
+
+        lbl2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
+        lbl2.setText("Si chocas con la pared, la serpiente volverá al estado inicial, pero mantendrás tus puntos.");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        pnlInfo.add(lbl2, gridBagConstraints);
+
+        lbl3.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
+        lbl3.setText("Tienes una serpiente que seguirá el cursor del mouse, acumulando puntos infinitamente.");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        pnlInfo.add(lbl3, gridBagConstraints);
 
         jLabelInfo.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
         jLabelInfo.setText("Instrucciones!!");
@@ -287,7 +321,7 @@ public class FormMain extends javax.swing.JFrame implements MouseMotionListener 
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 10;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         pnlInfo.add(jPanelSerpienteInfo, gridBagConstraints);
 
@@ -295,7 +329,7 @@ public class FormMain extends javax.swing.JFrame implements MouseMotionListener 
         jLabelSerpienteInfo.setText("Esta es tu serpiente. Usa el mouse  para moverte por el tablero.");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 10;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         pnlInfo.add(jLabelSerpienteInfo, gridBagConstraints);
 
@@ -315,15 +349,15 @@ public class FormMain extends javax.swing.JFrame implements MouseMotionListener 
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 12;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         pnlInfo.add(jPanelManzanInfo, gridBagConstraints);
 
         jLabelManzanaInfo.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
-        jLabelManzanaInfo.setText("Las manzanas te dan 100 puntos pero tambien la serpiente crece mas grande.\n");
+        jLabelManzanaInfo.setText("Las manzanas te dan 10 puntos pero tambien la serpiente crece mas grande.\n");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 12;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         pnlInfo.add(jLabelManzanaInfo, gridBagConstraints);
 
@@ -346,15 +380,15 @@ public class FormMain extends javax.swing.JFrame implements MouseMotionListener 
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridy = 16;
         gridBagConstraints.gridwidth = 3;
         pnlInfo.add(btnVolverInfo, gridBagConstraints);
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/img/logo_info.png"))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/img/logoInfo.png"))); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridheight = 13;
+        gridBagConstraints.gridheight = 19;
         pnlInfo.add(jLabel4, gridBagConstraints);
 
         pnlPrincipal.add(pnlInfo, "PanelInfo");
@@ -383,7 +417,7 @@ public class FormMain extends javax.swing.JFrame implements MouseMotionListener 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 15;
+        gridBagConstraints.gridwidth = 16;
         gridBagConstraints.gridheight = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         pnlJuego.add(jPanelTablero, gridBagConstraints);
@@ -449,7 +483,23 @@ public class FormMain extends javax.swing.JFrame implements MouseMotionListener 
         gridBagConstraints.gridy = 0;
         pnlJuego.add(lblMuertesDato, gridBagConstraints);
 
-        jPanelEspaciadorUI.setPreferredSize(new java.awt.Dimension(90, 10));
+        btnDetenerJuego.setBackground(new java.awt.Color(0, 0, 0));
+        btnDetenerJuego.setFont(new java.awt.Font("Segoe UI Variable", 0, 18)); // NOI18N
+        btnDetenerJuego.setForeground(new java.awt.Color(255, 255, 255));
+        btnDetenerJuego.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/img/octagon-pause.png"))); // NOI18N
+        btnDetenerJuego.setText("  Detener ");
+        btnDetenerJuego.setPreferredSize(new java.awt.Dimension(157, 38));
+        btnDetenerJuego.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDetenerJuegoActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 15;
+        gridBagConstraints.gridy = 0;
+        pnlJuego.add(btnDetenerJuego, gridBagConstraints);
+
+        jPanelEspaciadorUI.setPreferredSize(new java.awt.Dimension(55, 10));
 
         javax.swing.GroupLayout jPanelEspaciadorUILayout = new javax.swing.GroupLayout(jPanelEspaciadorUI);
         jPanelEspaciadorUI.setLayout(jPanelEspaciadorUILayout);
@@ -467,7 +517,25 @@ public class FormMain extends javax.swing.JFrame implements MouseMotionListener 
         gridBagConstraints.gridy = 0;
         pnlJuego.add(jPanelEspaciadorUI, gridBagConstraints);
 
-        jPanelEspaciadorUI1.setPreferredSize(new java.awt.Dimension(90, 10));
+        jPanelEspaciadorUI5.setPreferredSize(new java.awt.Dimension(55, 10));
+
+        javax.swing.GroupLayout jPanelEspaciadorUI5Layout = new javax.swing.GroupLayout(jPanelEspaciadorUI5);
+        jPanelEspaciadorUI5.setLayout(jPanelEspaciadorUI5Layout);
+        jPanelEspaciadorUI5Layout.setHorizontalGroup(
+            jPanelEspaciadorUI5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanelEspaciadorUI5Layout.setVerticalGroup(
+            jPanelEspaciadorUI5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 14;
+        gridBagConstraints.gridy = 0;
+        pnlJuego.add(jPanelEspaciadorUI5, gridBagConstraints);
+
+        jPanelEspaciadorUI1.setPreferredSize(new java.awt.Dimension(55, 10));
 
         javax.swing.GroupLayout jPanelEspaciadorUI1Layout = new javax.swing.GroupLayout(jPanelEspaciadorUI1);
         jPanelEspaciadorUI1.setLayout(jPanelEspaciadorUI1Layout);
@@ -485,7 +553,7 @@ public class FormMain extends javax.swing.JFrame implements MouseMotionListener 
         gridBagConstraints.gridy = 0;
         pnlJuego.add(jPanelEspaciadorUI1, gridBagConstraints);
 
-        jPanelEspaciadorUI2.setPreferredSize(new java.awt.Dimension(90, 10));
+        jPanelEspaciadorUI2.setPreferredSize(new java.awt.Dimension(55, 10));
 
         javax.swing.GroupLayout jPanelEspaciadorUI2Layout = new javax.swing.GroupLayout(jPanelEspaciadorUI2);
         jPanelEspaciadorUI2.setLayout(jPanelEspaciadorUI2Layout);
@@ -503,7 +571,7 @@ public class FormMain extends javax.swing.JFrame implements MouseMotionListener 
         gridBagConstraints.gridy = 0;
         pnlJuego.add(jPanelEspaciadorUI2, gridBagConstraints);
 
-        jPanelEspaciadorUI4.setPreferredSize(new java.awt.Dimension(90, 10));
+        jPanelEspaciadorUI4.setPreferredSize(new java.awt.Dimension(55, 10));
 
         javax.swing.GroupLayout jPanelEspaciadorUI4Layout = new javax.swing.GroupLayout(jPanelEspaciadorUI4);
         jPanelEspaciadorUI4.setLayout(jPanelEspaciadorUI4Layout);
@@ -521,7 +589,7 @@ public class FormMain extends javax.swing.JFrame implements MouseMotionListener 
         gridBagConstraints.gridy = 0;
         pnlJuego.add(jPanelEspaciadorUI4, gridBagConstraints);
 
-        jPanelEspaciadorUI3.setPreferredSize(new java.awt.Dimension(90, 10));
+        jPanelEspaciadorUI3.setPreferredSize(new java.awt.Dimension(55, 10));
 
         javax.swing.GroupLayout jPanelEspaciadorUI3Layout = new javax.swing.GroupLayout(jPanelEspaciadorUI3);
         jPanelEspaciadorUI3.setLayout(jPanelEspaciadorUI3Layout);
@@ -601,6 +669,11 @@ public class FormMain extends javax.swing.JFrame implements MouseMotionListener 
         this.velocidad = 300;
     }//GEN-LAST:event_rbVelBajaActionPerformed
 
+    private void btnDetenerJuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDetenerJuegoActionPerformed
+        this.dispose();
+        serpiente.morir();
+    }//GEN-LAST:event_btnDetenerJuegoActionPerformed
+
     @Override
     public void mouseMoved(MouseEvent e) {
         int mouseX = e.getX() / 20;
@@ -653,6 +726,7 @@ public class FormMain extends javax.swing.JFrame implements MouseMotionListener 
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnComenzar;
+    private javax.swing.JButton btnDetenerJuego;
     private javax.swing.JButton btnInfo;
     private javax.swing.JButton btnVolverInfo;
     private javax.swing.ButtonGroup buttonGroupDificultad;
@@ -673,9 +747,13 @@ public class FormMain extends javax.swing.JFrame implements MouseMotionListener 
     private javax.swing.JPanel jPanelEspaciadorUI2;
     private javax.swing.JPanel jPanelEspaciadorUI3;
     private javax.swing.JPanel jPanelEspaciadorUI4;
+    private javax.swing.JPanel jPanelEspaciadorUI5;
     private javax.swing.JPanel jPanelManzanInfo;
     private javax.swing.JPanel jPanelSerpienteInfo;
     private javax.swing.JPanel jPanelTablero;
+    private javax.swing.JLabel lbl1;
+    private javax.swing.JLabel lbl2;
+    private javax.swing.JLabel lbl3;
     private javax.swing.JLabel lblAjusVelocidad;
     private javax.swing.JLabel lblManzanas;
     protected static javax.swing.JLabel lblManzanasDato;

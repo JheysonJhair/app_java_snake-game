@@ -72,7 +72,7 @@ public class GeneradorDeManzanas extends Thread {
 
     public synchronized void manzanaDevorada() {
 
-        FormMain.lblPuntuacionDato.setText((Integer.parseInt(FormMain.lblPuntuacionDato.getText()) + 100) + "");
+        FormMain.lblPuntuacionDato.setText((Integer.parseInt(FormMain.lblPuntuacionDato.getText()) + 10) + "");
         FormMain.lblManzanasDato.setText((Integer.parseInt(FormMain.lblManzanasDato.getText()) + 1) + "");
         moverManzana(); 
         manzanaComida = true; 

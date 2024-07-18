@@ -13,5 +13,6 @@ com\jhairdev\ui_threads\FormMain.class
 com\jhairdev\ui_threads\DialogPuntuacion.class
 com\jhairdev\utils\Panel.class
 com\jhairdev\ui_threads\FormMain$5.class
+com\jhairdev\ui_threads\FormMain$9.class
 com\jhairdev\ui_threads\FormMain$3.class
 com\jhairdev\ui_threads\TablaDePuntuacion.class

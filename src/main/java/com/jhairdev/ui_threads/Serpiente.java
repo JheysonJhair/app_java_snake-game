@@ -94,7 +94,7 @@ public class Serpiente extends Thread {
         generadorDeManzanas.manzanaDevorada();
         System.out.println("Serpiente: Manzana devorada");
     }
-
+     
     private void reiniciar() {
         cronometro.pararCronometro();
         generadorDeManzanas.pararDeGenerar();
@@ -125,9 +125,19 @@ public class Serpiente extends Thread {
         this.cola = this.cuerpo.get(ultimoSegmento()).clone();
         generadorDeManzanas = new GeneradorDeManzanas(this.width, this.height);
         cronometro = new Cronometro();
+          dialogPuntuacion = new DialogPuntuacion(FormMain.getFrames()[0], true);
     }
 
     public List<int[]> getCuerpo() {
         return cuerpo;
+    }
+    
+    public void morir() {
+        cronometro.pararCronometro();
+        generadorDeManzanas.pararDeGenerar();
+        System.out.println("Serpiente: La serpiente ha muerto");
+        dialogPuntuacion.iniciar();
+        dialogPuntuacion.setVisible(true);
+        estaViva = false;
     }
 }

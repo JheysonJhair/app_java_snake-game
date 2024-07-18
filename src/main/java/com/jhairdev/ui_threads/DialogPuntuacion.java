@@ -20,9 +20,10 @@ public class DialogPuntuacion extends javax.swing.JDialog {
         lblPuntuacionDato.setText(FormMain.lblPuntuacionDato.getText());
         lblManzanasDato.setText(FormMain.lblManzanasDato.getText());
         lblTiempoDato.setText(FormMain.lblTiempoDato.getText());
+        lblMuertesDato.setText(FormMain.lblMuertesDato.getText());
         
         String[][] string = tablaDePuntuacion.recuperarLista();
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 4; i++) {
             if(Integer.parseInt(string[i][1]) <= Integer.parseInt(this.lblPuntuacionDato.getText())){
                 break;
             }
@@ -45,6 +46,8 @@ public class DialogPuntuacion extends javax.swing.JDialog {
         lblManzanasDato = new javax.swing.JLabel();
         lblTiempo = new javax.swing.JLabel();
         lblTiempoDato = new javax.swing.JLabel();
+        lblMuertes = new javax.swing.JLabel();
+        lblMuertesDato = new javax.swing.JLabel();
         btnSalir = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -101,7 +104,7 @@ public class DialogPuntuacion extends javax.swing.JDialog {
         lblTiempo.setText("Tiempo");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridy = 10;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(0, 15, 0, 0);
         getContentPane().add(lblTiempo, gridBagConstraints);
@@ -110,10 +113,28 @@ public class DialogPuntuacion extends javax.swing.JDialog {
         lblTiempoDato.setText("00:00");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridy = 10;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 15);
         getContentPane().add(lblTiempoDato, gridBagConstraints);
+
+        lblMuertes.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        lblMuertes.setText("Muertes");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(0, 15, 0, 0);
+        getContentPane().add(lblMuertes, gridBagConstraints);
+
+        lblMuertesDato.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        lblMuertesDato.setText("0");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 15);
+        getContentPane().add(lblMuertesDato, gridBagConstraints);
 
         btnSalir.setBackground(new java.awt.Color(0, 0, 0));
         btnSalir.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -221,6 +242,8 @@ public class DialogPuntuacion extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblManzanas;
     private javax.swing.JLabel lblManzanasDato;
+    private javax.swing.JLabel lblMuertes;
+    private javax.swing.JLabel lblMuertesDato;
     private javax.swing.JLabel lblPuntuacion;
     private javax.swing.JLabel lblPuntuacionDato;
     private javax.swing.JLabel lblTiempo;

@@ -7,6 +7,10 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
+import java.io.FileInputStream;
+import java.io.IOException;
+import javazoom.jl.decoder.JavaLayerException;
+import javazoom.jl.player.Player;
 
 /**
  *
@@ -16,7 +20,7 @@ public class FormMain extends javax.swing.JFrame implements MouseMotionListener 
 
     private CardLayout cardLayout = new CardLayout();
     protected static Panel[][] tablero;
-    
+
     protected static int contadorMuertes = 0;
     private GeneradorDeManzanas generadorDeManzanas;
     private Cronometro cronometro;
@@ -27,27 +31,51 @@ public class FormMain extends javax.swing.JFrame implements MouseMotionListener 
     private int height;
     private int velocidad;
 
+    private Thread musicaFondoThread;
+
     public FormMain() {
         initComponents();
         this.setLocationRelativeTo(null);
         this.width = 70;
         this.height = 34;
         this.velocidad = 300;
-        addMouseMotionListener(this); 
-        cardLayout = (CardLayout)pnlPrincipal.getLayout();
+        addMouseMotionListener(this);
+        cardLayout = (CardLayout) pnlPrincipal.getLayout();
         cardLayout.show(pnlPrincipal, "PanelInicio");
         tablaDePuntuacion = new TablaDePuntuacion();
     }
 
-    private void crearTablero(){
+    private void crearTablero() {
         FormMain.tablero = new Panel[width][height];
         for (int i = 0; i < width; i++) {
             for (int j = 0; j < height; j++) {
-                FormMain.tablero[i][j] = new Panel( Color.WHITE , i*20 , j*20 , 20 , 20 );
+                FormMain.tablero[i][j] = new Panel(Color.WHITE, i * 20, j * 20, 20, 20);
                 jPanelTablero.add(tablero[i][j]);
             }
         }
     }
+
+    private void reproducirMusicaFondo() {
+        musicaFondoThread = new Thread(() -> {
+            try {
+
+                FileInputStream fis = new FileInputStream("C:\\Users\\Jhair\\Documents\\NetBeansProjects\\app_pp_snake\\src\\main\\resources\\recursos\\sound\\fondo.mp3");
+                Player player = new Player(fis);
+                player.play();
+
+            } catch (JavaLayerException | IOException e) {
+                e.printStackTrace();
+            }
+        });
+        musicaFondoThread.start();
+    }
+
+    private void detenerMusicaFondo() {
+        if (musicaFondoThread != null && musicaFondoThread.isAlive()) {
+            musicaFondoThread.interrupt();
+        }
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -616,20 +644,20 @@ public class FormMain extends javax.swing.JFrame implements MouseMotionListener 
 
     @Override
     public void paint(Graphics g) {
-        this.setSize((this.width*20)+260, (this.height*20)+140);
-        jPanelTablero.setMinimumSize(new Dimension((this.width*20), (this.height*20)));
-        jPanelTablero.setPreferredSize(new Dimension((this.width*20), (this.height*20)));
+        this.setSize((this.width * 20) + 260, (this.height * 20) + 140);
+        jPanelTablero.setMinimumSize(new Dimension((this.width * 20), (this.height * 20)));
+        jPanelTablero.setPreferredSize(new Dimension((this.width * 20), (this.height * 20)));
         this.setLocationRelativeTo(null);
-        super.paint(g); 
+        super.paint(g);
     }
-    
-    private void btnComenzarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComenzarActionPerformed
 
+    private void btnComenzarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComenzarActionPerformed
+        reproducirMusicaFondo(); 
         crearTablero();
         repaint();
 
         this.serpiente = new Serpiente(this.width, this.height, this.velocidad);
- 
+
         lblManzanasDato.setText("0");
         lblPuntuacionDato.setText("0");
         lblTiempoDato.setText("00:00");
@@ -639,13 +667,15 @@ public class FormMain extends javax.swing.JFrame implements MouseMotionListener 
         this.requestFocus();
         serpiente.start();
 
-        new Thread(new Runnable(){
-            public void run(){
-            try{serpiente.join();}
-            catch(Exception e){;}
-            finally{
-                dispose();
-            }}
+        new Thread(new Runnable() {
+            public void run() {
+                try {
+                    serpiente.join();
+                } catch (Exception e) {;
+                } finally {
+                    dispose();
+                }
+            }
         }).start();
     }//GEN-LAST:event_btnComenzarActionPerformed
 
@@ -670,8 +700,10 @@ public class FormMain extends javax.swing.JFrame implements MouseMotionListener 
     }//GEN-LAST:event_rbVelBajaActionPerformed
 
     private void btnDetenerJuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDetenerJuegoActionPerformed
+        detenerMusicaFondo();
         this.dispose();
         serpiente.morir();
+        System.exit(0);   
     }//GEN-LAST:event_btnDetenerJuegoActionPerformed
 
     @Override
@@ -687,6 +719,7 @@ public class FormMain extends javax.swing.JFrame implements MouseMotionListener 
     public void mouseDragged(MouseEvent e) {
         mouseMoved(e);
     }
+
     /**
      * @param args the command line arguments
      */

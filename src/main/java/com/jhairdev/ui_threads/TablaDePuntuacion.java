@@ -1,6 +1,7 @@
 package com.jhairdev.ui_threads;
 
 public class TablaDePuntuacion {
+
     private String[][] tabla;
 
     public TablaDePuntuacion() {

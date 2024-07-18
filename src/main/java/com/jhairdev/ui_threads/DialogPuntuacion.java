@@ -1,9 +1,11 @@
 package com.jhairdev.ui_threads;
+
 /**
  *
  * @author Jhair
  */
 public class DialogPuntuacion extends javax.swing.JDialog {
+
     private TablaDePuntuacion tablaDePuntuacion;
 
     /**
@@ -14,22 +16,23 @@ public class DialogPuntuacion extends javax.swing.JDialog {
         initComponents();
         this.setLocationRelativeTo(null);
         tablaDePuntuacion = new TablaDePuntuacion();
-        
+
     }
-    public void iniciar(){
+
+    public void iniciar() {
         lblPuntuacionDato.setText(FormMain.lblPuntuacionDato.getText());
         lblManzanasDato.setText(FormMain.lblManzanasDato.getText());
         lblTiempoDato.setText(FormMain.lblTiempoDato.getText());
         lblMuertesDato.setText(FormMain.lblMuertesDato.getText());
-        
+
         String[][] string = tablaDePuntuacion.recuperarLista();
         for (int i = 0; i < 4; i++) {
-            if(Integer.parseInt(string[i][1]) <= Integer.parseInt(this.lblPuntuacionDato.getText())){
+            if (Integer.parseInt(string[i][1]) <= Integer.parseInt(this.lblPuntuacionDato.getText())) {
                 break;
             }
         }
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

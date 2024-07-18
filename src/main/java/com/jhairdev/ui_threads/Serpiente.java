@@ -1,18 +1,19 @@
 package com.jhairdev.ui_threads;
 
+import javazoom.jl.decoder.JavaLayerException;
+import javazoom.jl.player.Player;
 import java.awt.Color;
 import java.awt.MouseInfo;
 import java.awt.Point;
 import java.awt.Rectangle;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.SwingUtilities;
 
-/**
- *
- * @author Jhair 
- */
 public class Serpiente extends Thread {
+
     private boolean estaViva;
     private GeneradorDeManzanas generadorDeManzanas;
     private Cronometro cronometro;
@@ -22,7 +23,9 @@ public class Serpiente extends Thread {
     private final int height;
     private double velocidad;
     private DialogPuntuacion dialogPuntuacion;
-    private double anguloMovimiento; 
+    private double anguloMovimiento;
+
+    private final String sonidoComerPath = "C:\\Users\\Jhair\\Documents\\NetBeansProjects\\app_pp_snake\\src\\main\\resources\\recursos\\sound\\comer.mp3";
 
     public Serpiente(int width, int height, int velocidad) {
         this.width = width;
@@ -36,8 +39,8 @@ public class Serpiente extends Thread {
         try {
             cronometro.start();
             generadorDeManzanas.start();
+
             while (estaViva) {
-                
                 Point mousePos = MouseInfo.getPointerInfo().getLocation();
                 SwingUtilities.convertPointFromScreen(mousePos, FormMain.tablero[0][0].getParent());
 
@@ -90,11 +93,25 @@ public class Serpiente extends Thread {
     }
 
     private void añadirCuerpo() {
+        reproducirSonidoComer(); // Llama al método para reproducir el sonido
         this.cuerpo.add(this.cola.clone());
         generadorDeManzanas.manzanaDevorada();
+
         System.out.println("Serpiente: Manzana devorada");
     }
-     
+
+    private void reproducirSonidoComer() {
+        new Thread(() -> {
+            try {
+                FileInputStream fis = new FileInputStream(sonidoComerPath);
+                Player player = new Player(fis);
+                player.play();
+            } catch (JavaLayerException | IOException e) {
+                e.printStackTrace();
+            }
+        }).start();
+    }
+
     private void reiniciar() {
         cronometro.pararCronometro();
         generadorDeManzanas.pararDeGenerar();
@@ -121,20 +138,21 @@ public class Serpiente extends Thread {
     private void init() {
         this.cuerpo = new ArrayList<>();
         FormMain.tablero[this.width / 2][this.height / 2].setBackground(Color.BLACK);
-        this.cuerpo.add(new int[] { this.width / 2, this.height / 2, 0 });
+        this.cuerpo.add(new int[]{this.width / 2, this.height / 2, 0});
         this.cola = this.cuerpo.get(ultimoSegmento()).clone();
         generadorDeManzanas = new GeneradorDeManzanas(this.width, this.height);
         cronometro = new Cronometro();
-          dialogPuntuacion = new DialogPuntuacion(FormMain.getFrames()[0], true);
+        dialogPuntuacion = new DialogPuntuacion(FormMain.getFrames()[0], true);
     }
 
     public List<int[]> getCuerpo() {
         return cuerpo;
     }
-    
+
     public void morir() {
         cronometro.pararCronometro();
         generadorDeManzanas.pararDeGenerar();
+
         System.out.println("Serpiente: La serpiente ha muerto");
         dialogPuntuacion.iniciar();
         dialogPuntuacion.setVisible(true);

@@ -8,6 +8,7 @@ import java.util.Random;
  * @author Jhair
  */
 public class GeneradorDeManzanas extends Thread {
+
     private boolean parar;
     private boolean manzanaComida;
     private final Random rand;
@@ -27,22 +28,22 @@ public class GeneradorDeManzanas extends Thread {
 
     @Override
     public void run() {
-        generarManzana(); 
-        startTime = System.currentTimeMillis(); 
+        generarManzana();
+        startTime = System.currentTimeMillis();
 
         while (!this.parar) {
             try {
-                Thread.sleep(100); 
+                Thread.sleep(100);
             } catch (InterruptedException ex) {
                 System.out.println("Generador de manzanas: Interrupción - Hilo parado");
             }
             synchronized (this) {
                 if (manzanaComida) {
                     manzanaComida = false;
-                    startTime = System.currentTimeMillis(); 
+                    startTime = System.currentTimeMillis();
                 } else if (System.currentTimeMillis() - startTime >= 5000) {
                     moverManzana();
-                    startTime = System.currentTimeMillis(); 
+                    startTime = System.currentTimeMillis();
                 }
             }
         }
@@ -74,8 +75,8 @@ public class GeneradorDeManzanas extends Thread {
 
         FormMain.lblPuntuacionDato.setText((Integer.parseInt(FormMain.lblPuntuacionDato.getText()) + 10) + "");
         FormMain.lblManzanasDato.setText((Integer.parseInt(FormMain.lblManzanasDato.getText()) + 1) + "");
-        moverManzana(); 
-        manzanaComida = true; 
+        moverManzana();
+        manzanaComida = true;
     }
 
     public void pararDeGenerar() {

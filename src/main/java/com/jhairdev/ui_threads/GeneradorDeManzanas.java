@@ -11,9 +11,9 @@ public class GeneradorDeManzanas extends Thread {
 
     private boolean parar;
     private boolean manzanaComida;
-    private final Random rand;
     private final int width;
     private final int height;
+    private final Random rand;
     private int x;
     private int y;
     private long startTime;
@@ -29,15 +29,8 @@ public class GeneradorDeManzanas extends Thread {
     @Override
     public void run() {
         generarManzana();
-        startTime = System.currentTimeMillis();
-
         while (!this.parar) {
             try {
-                Thread.sleep(100);
-            } catch (InterruptedException ex) {
-                System.out.println("Generador de manzanas: Interrupción - Hilo parado");
-            }
-            synchronized (this) {
                 if (manzanaComida) {
                     manzanaComida = false;
                     startTime = System.currentTimeMillis();
@@ -45,17 +38,18 @@ public class GeneradorDeManzanas extends Thread {
                     moverManzana();
                     startTime = System.currentTimeMillis();
                 }
+                Thread.sleep(1000);
+            } catch (InterruptedException ex) {
+                System.out.println("Generador de manzanas: Interrupción - Hilo parado");
             }
         }
     }
 
-    private synchronized void generarManzana() {
+    private void generarManzana() {
         boolean manzanaColocada = false;
         while (!manzanaColocada && !this.parar) {
             x = rand.nextInt(width);
-            y = rand.nextInt(height);
-            // log
-            System.out.println("Generador de manzanas: Intentando colocar una manzana en las coordenadas " + x + "," + y);
+            y = rand.nextInt(height);       
             if (FormMain.tablero[x][y].getBackground() == Color.WHITE) {
                 FormMain.tablero[x][y].setBackground(Color.RED);
                 manzanaColocada = true;
@@ -64,15 +58,14 @@ public class GeneradorDeManzanas extends Thread {
         }
     }
 
-    private synchronized void moverManzana() {
+    private void moverManzana() {
         if (FormMain.tablero[x][y].getBackground() == Color.RED) {
             FormMain.tablero[x][y].setBackground(Color.WHITE);
         }
         generarManzana();
     }
 
-    public synchronized void manzanaDevorada() {
-
+    public void manzanaDevorada() {
         FormMain.lblPuntuacionDato.setText((Integer.parseInt(FormMain.lblPuntuacionDato.getText()) + 10) + "");
         FormMain.lblManzanasDato.setText((Integer.parseInt(FormMain.lblManzanasDato.getText()) + 1) + "");
         moverManzana();

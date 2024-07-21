@@ -21,9 +21,8 @@ public class Serpiente extends Thread {
     private int[] cola;
     private final int width;
     private final int height;
-    private double velocidad;
+    private final double velocidad;
     private DialogPuntuacion dialogPuntuacion;
-    private double anguloMovimiento;
 
     private final String sonidoComerPath = "C:\\Users\\Jhair\\Documents\\NetBeansProjects\\app_pp_snake\\src\\main\\resources\\recursos\\sound\\comer.mp3";
 
@@ -50,21 +49,24 @@ public class Serpiente extends Thread {
 
                 int x = this.cuerpo.get(0)[0];
                 int y = this.cuerpo.get(0)[1];
-                double angulo = Math.atan2(mouseY - y, mouseX - x);
-                setAnguloMovimiento(angulo);
+
+                int dx = Integer.compare(mouseX, x);
+                int dy = Integer.compare(mouseY, y);
 
                 this.cola = this.cuerpo.get(ultimoSegmento()).clone();
 
                 for (int i = ultimoSegmento(); i >= 0; i--) {
                     int[] segmento = this.cuerpo.get(i);
                     if (i == 0) {
-                        segmento[0] += (int) Math.round(Math.cos(anguloMovimiento));
-                        segmento[1] += (int) Math.round(Math.sin(anguloMovimiento));
+                        segmento[0] += dx;
+                        segmento[1] += dy;
                     } else {
                         this.cuerpo.get(i)[0] = this.cuerpo.get(i - 1)[0];
                         this.cuerpo.get(i)[1] = this.cuerpo.get(i - 1)[1];
                     }
                 }
+
+                System.out.println("Posicion de la serpiente: (" + x + ", " + y + ")");
 
                 if (FormMain.tablero[this.cuerpo.get(0)[0]][this.cuerpo.get(0)[1]].getBackground() == Color.RED) {
                     añadirCuerpo();
@@ -72,6 +74,7 @@ public class Serpiente extends Thread {
                     FormMain.tablero[this.cola[0]][this.cola[1]].setBackground(Color.WHITE);
                 }
                 FormMain.tablero[this.cuerpo.get(0)[0]][this.cuerpo.get(0)[1]].setBackground(Color.BLACK);
+
                 try {
                     Thread.sleep((long) velocidad);
                 } catch (InterruptedException ex) {
@@ -79,6 +82,7 @@ public class Serpiente extends Thread {
                 }
             }
         } catch (IndexOutOfBoundsException e) {
+            System.out.println("Error admitido: " + e.getMessage());
         } finally {
             reiniciar();
         }
@@ -88,12 +92,8 @@ public class Serpiente extends Thread {
         return this.cuerpo.size() - 1;
     }
 
-    public void setAnguloMovimiento(double angulo) {
-        this.anguloMovimiento = angulo;
-    }
-
     private void añadirCuerpo() {
-        reproducirSonidoComer(); // Llama al método para reproducir el sonido
+        reproducirSonidoComer();
         this.cuerpo.add(this.cola.clone());
         generadorDeManzanas.manzanaDevorada();
 
@@ -107,7 +107,6 @@ public class Serpiente extends Thread {
                 Player player = new Player(fis);
                 player.play();
             } catch (JavaLayerException | IOException e) {
-                e.printStackTrace();
             }
         }).start();
     }

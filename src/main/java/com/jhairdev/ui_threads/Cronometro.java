@@ -38,8 +38,4 @@ public class Cronometro extends Thread {
     public void pararCronometro() {
         this.parar = true;
     }
-
-    public void continuarCronometro() {
-        this.parar = false;
-    }
 }

@@ -37,5 +37,6 @@ public class Cronometro extends Thread {
 
     public void pararCronometro() {
         this.parar = true;
+        System.out.println("Cronometro detenido!");
     }
 }

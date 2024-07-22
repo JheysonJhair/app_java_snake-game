@@ -55,7 +55,8 @@ public class GeneradorDeManzanas extends Thread {
                 manzanaColocada = true;
                 System.out.println("Generador de manzanas: Manzana colocada");
             }
-        }
+           
+        }    
     }
 
     private void moverManzana() {

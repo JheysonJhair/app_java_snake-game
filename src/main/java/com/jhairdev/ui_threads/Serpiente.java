@@ -36,10 +36,8 @@ public class Serpiente extends Thread {
     @Override
     public void run() {
         try {
-            cronometro.start();
             generadorDeManzanas.start();
-
-            while (estaViva) {
+            while (this.estaViva) {
                 Point mousePos = MouseInfo.getPointerInfo().getLocation();
                 SwingUtilities.convertPointFromScreen(mousePos, FormMain.tablero[0][0].getParent());
 
@@ -66,8 +64,7 @@ public class Serpiente extends Thread {
                     }
                 }
 
-                System.out.println("Posicion de la serpiente: (" + x + ", " + y + ")");
-
+                //System.out.println("Posicion de la serpiente: (" + x + ", " + y + ")");
                 if (FormMain.tablero[this.cuerpo.get(0)[0]][this.cuerpo.get(0)[1]].getBackground() == Color.RED) {
                     añadirCuerpo();
                 } else {
@@ -96,7 +93,6 @@ public class Serpiente extends Thread {
         reproducirSonidoComer();
         this.cuerpo.add(this.cola.clone());
         generadorDeManzanas.manzanaDevorada();
-
         System.out.println("Serpiente: Manzana devorada");
     }
 
@@ -112,7 +108,6 @@ public class Serpiente extends Thread {
     }
 
     private void reiniciar() {
-        cronometro.pararCronometro();
         generadorDeManzanas.pararDeGenerar();
         if (estaViva) {
             FormMain.contadorMuertes++;
@@ -140,7 +135,6 @@ public class Serpiente extends Thread {
         this.cuerpo.add(new int[]{this.width / 2, this.height / 2, 0});
         this.cola = this.cuerpo.get(ultimoSegmento()).clone();
         generadorDeManzanas = new GeneradorDeManzanas(this.width, this.height);
-        cronometro = new Cronometro();
         dialogPuntuacion = new DialogPuntuacion(FormMain.getFrames()[0], true);
     }
 
@@ -149,12 +143,10 @@ public class Serpiente extends Thread {
     }
 
     public void morir() {
-        cronometro.pararCronometro();
         generadorDeManzanas.pararDeGenerar();
-
-        System.out.println("Serpiente: La serpiente ha muerto");
         dialogPuntuacion.iniciar();
         dialogPuntuacion.setVisible(true);
-        estaViva = false;
+        this.estaViva = false;
+        System.out.println("Serpiente: La serpiente ha muerto");
     }
 }

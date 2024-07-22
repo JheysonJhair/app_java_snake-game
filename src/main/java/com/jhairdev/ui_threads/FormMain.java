@@ -1,12 +1,11 @@
 package com.jhairdev.ui_threads;
 
 import com.jhairdev.utils.Panel;
+
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseMotionListener;
 import java.io.FileInputStream;
 import java.io.IOException;
 import javazoom.jl.decoder.JavaLayerException;
@@ -16,12 +15,14 @@ import javazoom.jl.player.Player;
  *
  * @author Jhair
  */
-public class FormMain extends javax.swing.JFrame implements MouseMotionListener {
+public class FormMain extends javax.swing.JFrame {
+
+    private final Cronometro cronometro;
 
     private CardLayout cardLayout = new CardLayout();
     protected static Panel[][] tablero;
 
-    protected static int contadorMuertes = 0;
+    protected static int contadorMuertes;
     private Serpiente serpiente;
 
     private final int width;
@@ -29,14 +30,16 @@ public class FormMain extends javax.swing.JFrame implements MouseMotionListener 
     private int velocidad;
 
     private Thread musicaFondoThread;
+    private final String sonidoComerPath = "C:\\Users\\Jhair\\Documents\\NetBeansProjects\\app_pp_snake\\src\\main\\resources\\recursos\\sound\\fondo.mp3";
 
     public FormMain() {
+        cronometro = new Cronometro();
         initComponents();
         this.setLocationRelativeTo(null);
         this.width = 70;
         this.height = 34;
         this.velocidad = 300;
-        addMouseMotionListener(this);
+
         cardLayout = (CardLayout) pnlPrincipal.getLayout();
         cardLayout.show(pnlPrincipal, "PanelInicio");
     }
@@ -54,7 +57,7 @@ public class FormMain extends javax.swing.JFrame implements MouseMotionListener 
     private void reproducirMusicaFondo() {
         musicaFondoThread = new Thread(() -> {
             try {
-                FileInputStream fis = new FileInputStream("C:\\Users\\Jhair\\Documents\\NetBeansProjects\\app_pp_snake\\src\\main\\resources\\recursos\\sound\\fondo.mp3");
+                FileInputStream fis = new FileInputStream(sonidoComerPath);
                 Player player = new Player(fis);
                 player.play();
 
@@ -63,7 +66,6 @@ public class FormMain extends javax.swing.JFrame implements MouseMotionListener 
         });
         musicaFondoThread.start();
     }
-
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -635,32 +637,20 @@ public class FormMain extends javax.swing.JFrame implements MouseMotionListener 
         super.paint(g);
     }
 
+    @SuppressWarnings("empty-statement")
     private void btnComenzarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComenzarActionPerformed
-        reproducirMusicaFondo(); 
+        cardLayout.show(pnlPrincipal, "PanelJuego");
+        cronometro.start();
+        reproducirMusicaFondo();
         crearTablero();
-        repaint();
-
-        this.serpiente = new Serpiente(this.width, this.height, this.velocidad);
 
         lblManzanasDato.setText("0");
         lblPuntuacionDato.setText("0");
         lblTiempoDato.setText("00:00");
         lblMuertesDato.setText(String.valueOf(contadorMuertes));
 
-        cardLayout.show(pnlPrincipal, "PanelJuego");
-        this.requestFocus();
+        this.serpiente = new Serpiente(this.width, this.height, this.velocidad);
         serpiente.start();
-
-        new Thread(new Runnable() {
-            public void run() {
-                try {
-                    serpiente.join();
-                } catch (Exception e) {;
-                } finally {
-                    dispose();
-                }
-            }
-        }).start();
     }//GEN-LAST:event_btnComenzarActionPerformed
 
     private void rbVelAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbVelAltaActionPerformed
@@ -684,25 +674,9 @@ public class FormMain extends javax.swing.JFrame implements MouseMotionListener 
     }//GEN-LAST:event_rbVelBajaActionPerformed
 
     private void btnDetenerJuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDetenerJuegoActionPerformed
-
         this.dispose();
-        serpiente.morir();
-        System.exit(0);   
+        serpiente.morir();    
     }//GEN-LAST:event_btnDetenerJuegoActionPerformed
-
-    @Override
-    public void mouseMoved(MouseEvent e) {
-        int mouseX = e.getX() / 20;
-        int mouseY = e.getY() / 20;
-        int[] cabeza = serpiente.getCuerpo().get(0);
-        double angulo = Math.atan2(mouseY - cabeza[1], mouseX - cabeza[0]);
-  
-    }
-
-    @Override
-    public void mouseDragged(MouseEvent e) {
-        mouseMoved(e);
-    }
 
     /**
      * @param args the command line arguments

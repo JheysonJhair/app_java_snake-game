@@ -17,31 +17,35 @@ import javazoom.jl.player.Player;
  */
 public class FormMain extends javax.swing.JFrame {
 
-    private final Cronometro cronometro;
+    private final ProcessChronometer cronometro;
 
     private CardLayout cardLayout = new CardLayout();
     protected static Panel[][] tablero;
 
     protected static int contadorMuertes;
-    private Serpiente serpiente;
+    private ProcessSnake serpiente;
 
     private final int width;
     private final int height;
     private int velocidad;
 
     private Thread musicaFondoThread;
-    private final String sonidoComerPath = "C:\\Users\\Jhair\\Documents\\NetBeansProjects\\app_pp_snake\\src\\main\\resources\\recursos\\sound\\fondo.mp3";
+    private Thread sonidoInicioThread;
+    private Player sonidoInicioPlayer;
+    private final String sonidoFondoPath = "C:\\Users\\Jhair\\Documents\\NetBeansProjects\\app_pp_snake\\src\\main\\resources\\resources\\sound\\fondo.mp3";
+    private final String sonidoInicioPath = "C:\\Users\\Jhair\\Documents\\NetBeansProjects\\app_pp_snake\\src\\main\\resources\\resources\\sound\\inicio.mp3";
 
     public FormMain() {
-        cronometro = new Cronometro();
+        cronometro = new ProcessChronometer();
         initComponents();
         this.setLocationRelativeTo(null);
-        this.width = 70;
+        this.width = 73;
         this.height = 34;
         this.velocidad = 300;
 
         cardLayout = (CardLayout) pnlPrincipal.getLayout();
         cardLayout.show(pnlPrincipal, "PanelInicio");
+        reproducirSonidoInicio();
     }
 
     private void crearTablero() {
@@ -57,7 +61,7 @@ public class FormMain extends javax.swing.JFrame {
     private void reproducirMusicaFondo() {
         musicaFondoThread = new Thread(() -> {
             try {
-                FileInputStream fis = new FileInputStream(sonidoComerPath);
+                FileInputStream fis = new FileInputStream(sonidoFondoPath);
                 Player player = new Player(fis);
                 player.play();
 
@@ -65,6 +69,28 @@ public class FormMain extends javax.swing.JFrame {
             }
         });
         musicaFondoThread.start();
+    }
+
+    private void reproducirSonidoInicio() {
+        sonidoInicioThread = new Thread(() -> {
+            try {
+                FileInputStream fis = new FileInputStream(sonidoInicioPath);
+                sonidoInicioPlayer = new Player(fis);
+                sonidoInicioPlayer.play();
+
+            } catch (JavaLayerException | IOException e) {
+            }
+        });
+        sonidoInicioThread.start();
+    }
+
+    private void detenerSonidoInicio() {
+        if (sonidoInicioPlayer != null) {
+            sonidoInicioPlayer.close();
+        }
+        if (sonidoInicioThread != null && sonidoInicioThread.isAlive()) {
+            sonidoInicioThread.interrupt();
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -630,7 +656,7 @@ public class FormMain extends javax.swing.JFrame {
 
     @Override
     public void paint(Graphics g) {
-        this.setSize((this.width * 20) + 260, (this.height * 20) + 140);
+        this.setSize((this.width * 20) + 80, (this.height * 20) + 140);
         jPanelTablero.setMinimumSize(new Dimension((this.width * 20), (this.height * 20)));
         jPanelTablero.setPreferredSize(new Dimension((this.width * 20), (this.height * 20)));
         this.setLocationRelativeTo(null);
@@ -641,6 +667,7 @@ public class FormMain extends javax.swing.JFrame {
     private void btnComenzarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComenzarActionPerformed
         cardLayout.show(pnlPrincipal, "PanelJuego");
         cronometro.start();
+        detenerSonidoInicio();
         reproducirMusicaFondo();
         crearTablero();
 
@@ -649,7 +676,7 @@ public class FormMain extends javax.swing.JFrame {
         lblTiempoDato.setText("00:00");
         lblMuertesDato.setText(String.valueOf(contadorMuertes));
 
-        this.serpiente = new Serpiente(this.width, this.height, this.velocidad);
+        this.serpiente = new ProcessSnake(this.width, this.height, this.velocidad);
         serpiente.start();
     }//GEN-LAST:event_btnComenzarActionPerformed
 
@@ -675,7 +702,7 @@ public class FormMain extends javax.swing.JFrame {
 
     private void btnDetenerJuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDetenerJuegoActionPerformed
         this.dispose();
-        serpiente.morir();    
+        serpiente.morir();
     }//GEN-LAST:event_btnDetenerJuegoActionPerformed
 
     /**

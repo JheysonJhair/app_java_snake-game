@@ -6,9 +6,11 @@ import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URL;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.player.Player;
 
@@ -60,7 +62,7 @@ public class FormMain extends javax.swing.JFrame {
         }
     }
 
-  private void reproducirMusicaFondo() {
+    private void reproducirMusicaFondo() {
         musicaFondoThread = new Thread(() -> {
             try (InputStream is = getClass().getResourceAsStream(sonidoFondoPath)) {
                 if (is != null) {
@@ -162,7 +164,7 @@ public class FormMain extends javax.swing.JFrame {
         jPanelEspaciadorUI3 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/recursos/img/logo_icon.png")).getImage());
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/images/icon.png")).getImage());
         setMinimumSize(new java.awt.Dimension(750, 450));
         setResizable(false);
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.LINE_AXIS));
@@ -180,7 +182,7 @@ public class FormMain extends javax.swing.JFrame {
         pnlInicio.setLayout(jPanelInicioLayout);
 
         jLabelLogo.setFont(new java.awt.Font("Tahoma", 1, 60)); // NOI18N
-        jLabelLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/img/logo_snake.png"))); // NOI18N
+        jLabelLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logoSnake.png"))); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -262,7 +264,7 @@ public class FormMain extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         pnlInicio.add(btnComenzar, gridBagConstraints);
 
-        btnInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/img/info_snake.png"))); // NOI18N
+        btnInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/infoSnake.png"))); // NOI18N
         btnInfo.setBorder(null);
         btnInfo.setBorderPainted(false);
         btnInfo.setContentAreaFilled(false);
@@ -418,7 +420,7 @@ public class FormMain extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         pnlInfo.add(jLabelManzanaInfo, gridBagConstraints);
 
-        jLabelClockImgInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/img/info_snake.png"))); // NOI18N
+        jLabelClockImgInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/infoSnake.png"))); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
@@ -441,7 +443,7 @@ public class FormMain extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = 3;
         pnlInfo.add(btnVolverInfo, gridBagConstraints);
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/img/logoInfo.png"))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logoInfo.png"))); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -479,7 +481,7 @@ public class FormMain extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         pnlJuego.add(jPanelTablero, gridBagConstraints);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/img/logo.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo.png"))); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -543,7 +545,7 @@ public class FormMain extends javax.swing.JFrame {
         btnDetenerJuego.setBackground(new java.awt.Color(0, 0, 0));
         btnDetenerJuego.setFont(new java.awt.Font("Segoe UI Variable", 0, 18)); // NOI18N
         btnDetenerJuego.setForeground(new java.awt.Color(255, 255, 255));
-        btnDetenerJuego.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/img/octagon-pause.png"))); // NOI18N
+        btnDetenerJuego.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/octagon-pause.png"))); // NOI18N
         btnDetenerJuego.setText("  Detener ");
         btnDetenerJuego.setPreferredSize(new java.awt.Dimension(157, 38));
         btnDetenerJuego.addActionListener(new java.awt.event.ActionListener() {

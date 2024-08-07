@@ -8,6 +8,7 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.player.Player;
 
@@ -33,8 +34,8 @@ public class FormMain extends javax.swing.JFrame {
     private Thread sonidoInicioThread;
     private Player sonidoInicioPlayer;
     private Player sonidoFondoPlayer;
-    private final String sonidoFondoPath = "C:\\Users\\Jhair\\Documents\\NetBeansProjects\\app_pp_snake\\src\\main\\resources\\resources\\sound\\fondo.mp3";
-    private final String sonidoInicioPath = "C:\\Users\\Jhair\\Documents\\NetBeansProjects\\app_pp_snake\\src\\main\\resources\\resources\\sound\\inicio.mp3";
+    private final String sonidoFondoPath = "/sound/fondo.mp3";
+    private final String sonidoInicioPath = "/sound/inicio.mp3";
 
     public FormMain() {
         cronometro = new ProcessChronometer();
@@ -59,14 +60,17 @@ public class FormMain extends javax.swing.JFrame {
         }
     }
 
-    private void reproducirMusicaFondo() {
+  private void reproducirMusicaFondo() {
         musicaFondoThread = new Thread(() -> {
-            try {
-                FileInputStream fis = new FileInputStream(sonidoFondoPath);
-                sonidoFondoPlayer = new Player(fis);
-                sonidoFondoPlayer.play();
-
+            try (InputStream is = getClass().getResourceAsStream(sonidoFondoPath)) {
+                if (is != null) {
+                    sonidoFondoPlayer = new Player(is);
+                    sonidoFondoPlayer.play();
+                } else {
+                    System.err.println("No se pudo encontrar el archivo de sonido: " + sonidoFondoPath);
+                }
             } catch (JavaLayerException | IOException e) {
+                e.printStackTrace();
             }
         });
         musicaFondoThread.start();
@@ -74,12 +78,15 @@ public class FormMain extends javax.swing.JFrame {
 
     private void reproducirSonidoInicio() {
         sonidoInicioThread = new Thread(() -> {
-            try {
-                FileInputStream fis = new FileInputStream(sonidoInicioPath);
-                sonidoInicioPlayer = new Player(fis);
-                sonidoInicioPlayer.play();
-
+            try (InputStream is = getClass().getResourceAsStream(sonidoInicioPath)) {
+                if (is != null) {
+                    sonidoInicioPlayer = new Player(is);
+                    sonidoInicioPlayer.play();
+                } else {
+                    System.err.println("No se pudo encontrar el archivo de sonido: " + sonidoInicioPath);
+                }
             } catch (JavaLayerException | IOException e) {
+                e.printStackTrace();
             }
         });
         sonidoInicioThread.start();

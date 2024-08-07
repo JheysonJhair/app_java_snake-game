@@ -8,8 +8,8 @@ import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.Robot;
 import java.awt.AWTException;
-import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.SwingUtilities;
@@ -18,7 +18,6 @@ public class ProcessSnake extends Thread {
 
     private boolean estaViva;
     private ProcessApple generadorDeManzanas;
-    private ProcessChronometer cronometro;
     private List<int[]> cuerpo;
     private int[] cola;
     private final int width;
@@ -26,8 +25,8 @@ public class ProcessSnake extends Thread {
     private final double velocidad;
     private ScoreDialog dialogPuntuacion;
 
-    private final String sonidoComerPath = "C:\\Users\\Jhair\\Documents\\NetBeansProjects\\app_pp_snake\\src\\main\\resources\\resources\\sound\\comer.mp3";
-    private final String sonidoChocarPath = "C:\\Users\\Jhair\\Documents\\NetBeansProjects\\app_pp_snake\\src\\main\\resources\\resources\\sound\\pared.mp3";
+    private final String sonidoComerPath = "/sound/comer.mp3";
+    private final String sonidoChocarPath = "/sound/pared.mp3";
 
     public ProcessSnake(int width, int height, int velocidad) {
         this.width = width;
@@ -79,7 +78,7 @@ public class ProcessSnake extends Thread {
                     Thread.sleep((long) velocidad);
                 } catch (InterruptedException ex) {
                     System.out.println("Serpiente: Interrupción - Hilo parado");
-                    break; // Salir del bucle si el hilo es interrumpido
+                    break; 
                 }
             }
         } catch (IndexOutOfBoundsException e) {
@@ -102,22 +101,30 @@ public class ProcessSnake extends Thread {
 
     private void reproducirSonidoComer() {
         new Thread(() -> {
-            try {
-                FileInputStream fis = new FileInputStream(sonidoComerPath);
-                Player player = new Player(fis);
-                player.play();
+            try (InputStream is = getClass().getResourceAsStream(sonidoComerPath)) {
+                if (is != null) {
+                    Player player = new Player(is);
+                    player.play();
+                } else {
+                    System.err.println("No se pudo encontrar el archivo de sonido: " + sonidoComerPath);
+                }
             } catch (JavaLayerException | IOException e) {
+                e.printStackTrace();
             }
         }).start();
     }
 
     private void reproducirSonidoChocar() {
         new Thread(() -> {
-            try {
-                FileInputStream fis = new FileInputStream(sonidoChocarPath);
-                Player player = new Player(fis);
-                player.play();
+            try (InputStream is = getClass().getResourceAsStream(sonidoChocarPath)) {
+                if (is != null) {
+                    Player player = new Player(is);
+                    player.play();
+                } else {
+                    System.err.println("No se pudo encontrar el archivo de sonido: " + sonidoChocarPath);
+                }
             } catch (JavaLayerException | IOException e) {
+                e.printStackTrace();
             }
         }).start();
     }
@@ -164,14 +171,13 @@ public class ProcessSnake extends Thread {
         dialogPuntuacion.iniciar();
         dialogPuntuacion.setVisible(true);
         this.estaViva = false;
-        this.interrupt(); // Interrumpir el hilo
+        this.interrupt(); 
         System.out.println("Serpiente: La serpiente ha muerto");
     }
 
     private void centrarMouse() {
         try {
             Robot robot = new Robot();
-            // Calcular el centro de la pantalla
             Point centro = new Point(this.width / 2, this.height / 2);
             SwingUtilities.convertPointToScreen(centro, FormMain.tablero[0][0].getParent());
             robot.mouseMove(centro.x, centro.y);

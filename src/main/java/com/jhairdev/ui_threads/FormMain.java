@@ -32,6 +32,7 @@ public class FormMain extends javax.swing.JFrame {
     private Thread musicaFondoThread;
     private Thread sonidoInicioThread;
     private Player sonidoInicioPlayer;
+    private Player sonidoFondoPlayer;
     private final String sonidoFondoPath = "C:\\Users\\Jhair\\Documents\\NetBeansProjects\\app_pp_snake\\src\\main\\resources\\resources\\sound\\fondo.mp3";
     private final String sonidoInicioPath = "C:\\Users\\Jhair\\Documents\\NetBeansProjects\\app_pp_snake\\src\\main\\resources\\resources\\sound\\inicio.mp3";
 
@@ -62,8 +63,8 @@ public class FormMain extends javax.swing.JFrame {
         musicaFondoThread = new Thread(() -> {
             try {
                 FileInputStream fis = new FileInputStream(sonidoFondoPath);
-                Player player = new Player(fis);
-                player.play();
+                sonidoFondoPlayer = new Player(fis);
+                sonidoFondoPlayer.play();
 
             } catch (JavaLayerException | IOException e) {
             }
@@ -90,6 +91,15 @@ public class FormMain extends javax.swing.JFrame {
         }
         if (sonidoInicioThread != null && sonidoInicioThread.isAlive()) {
             sonidoInicioThread.interrupt();
+        }
+    }
+
+    private void detenerSonidoFondo() {
+        if (sonidoFondoPlayer != null) {
+            sonidoFondoPlayer.close();
+        }
+        if (musicaFondoThread != null && sonidoInicioThread.isAlive()) {
+            musicaFondoThread.interrupt();
         }
     }
 
@@ -702,6 +712,7 @@ public class FormMain extends javax.swing.JFrame {
 
     private void btnDetenerJuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDetenerJuegoActionPerformed
         this.dispose();
+        detenerSonidoFondo();
         serpiente.morir();
     }//GEN-LAST:event_btnDetenerJuegoActionPerformed
 

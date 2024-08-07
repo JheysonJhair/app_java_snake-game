@@ -6,6 +6,8 @@ import java.awt.Color;
 import java.awt.MouseInfo;
 import java.awt.Point;
 import java.awt.Rectangle;
+import java.awt.Robot;
+import java.awt.AWTException;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -37,6 +39,7 @@ public class ProcessSnake extends Thread {
     @Override
     public void run() {
         try {
+            System.out.println("" + velocidad);
             generadorDeManzanas.start();
             while (this.estaViva) {
                 Point mousePos = MouseInfo.getPointerInfo().getLocation();
@@ -65,7 +68,6 @@ public class ProcessSnake extends Thread {
                     }
                 }
 
-                //System.out.println("Posicion de la serpiente: (" + x + ", " + y + ")");
                 if (FormMain.tablero[this.cuerpo.get(0)[0]][this.cuerpo.get(0)[1]].getBackground() == Color.RED) {
                     añadirCuerpo();
                 } else {
@@ -77,6 +79,7 @@ public class ProcessSnake extends Thread {
                     Thread.sleep((long) velocidad);
                 } catch (InterruptedException ex) {
                     System.out.println("Serpiente: Interrupción - Hilo parado");
+                    break; // Salir del bucle si el hilo es interrumpido
                 }
             }
         } catch (IndexOutOfBoundsException e) {
@@ -157,9 +160,23 @@ public class ProcessSnake extends Thread {
 
     public void morir() {
         generadorDeManzanas.pararDeGenerar();
+        centrarMouse();
         dialogPuntuacion.iniciar();
         dialogPuntuacion.setVisible(true);
         this.estaViva = false;
+        this.interrupt(); // Interrumpir el hilo
         System.out.println("Serpiente: La serpiente ha muerto");
+    }
+
+    private void centrarMouse() {
+        try {
+            Robot robot = new Robot();
+            // Calcular el centro de la pantalla
+            Point centro = new Point(this.width / 2, this.height / 2);
+            SwingUtilities.convertPointToScreen(centro, FormMain.tablero[0][0].getParent());
+            robot.mouseMove(centro.x, centro.y);
+        } catch (AWTException e) {
+            System.err.println("Error al centrar el mouse: " + e.getMessage());
+        }
     }
 }

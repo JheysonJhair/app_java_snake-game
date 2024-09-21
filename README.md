@@ -8,7 +8,7 @@
     </p>
 </div>
 
-![Preview](public/preview.png)
+![Preview](public/previeww.png)
 
 # Juego en Java con Movimiento del Mouse
 
